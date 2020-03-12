@@ -1,0 +1,6 @@
+*.pyc
+__pycache__
+migrations
+.vscode/
+capstoneEnv/
+db.sqlite3
