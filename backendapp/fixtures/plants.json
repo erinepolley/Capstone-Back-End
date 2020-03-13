@@ -1,0 +1,86 @@
+[
+    {
+      "model": "backendapp.plant",
+      "pk": 1,
+      "fields": {
+        "name": "Sylvia",
+        "description": "plant beside the window",
+        "img_url": "google.com",
+        "days": 5,
+        "weeks": 0,
+        "reminder_time": null,
+        "user": 1 
+      }
+    },
+
+    {
+      "model": "backendapp.plant",
+      "pk": 2,
+      "fields": {
+        "name": "Bruce",
+        "description": "Aloe Vera",
+        "img_url": "google.com",
+        "days": 0,
+        "weeks": 1,
+        "reminder_time": null,
+        "user": 1 
+      }
+    },
+
+    {
+      "model": "backendapp.plant",
+      "pk": 3,
+      "fields": {
+        "name": "Sheila",
+        "description": "beast",
+        "img_url": "google.com",
+        "days": 3,
+        "weeks": 0,
+        "reminder_time": null,
+        "user": 1 
+      }
+    },
+
+        {
+      "model": "backendapp.plant",
+      "pk": 4,
+      "fields": {
+        "name": "Charlie",
+        "description": "peace lily",
+        "img_url": "google.com",
+        "days": 8,
+        "weeks": 0,
+        "reminder_time": null,
+        "user": 2 
+      }
+    },
+
+        {
+      "model": "backendapp.plant",
+      "pk": 5,
+      "fields": {
+        "name": "Henrietta",
+        "description": "plant in the pink pot",
+        "img_url": "google.com",
+        "days": 0,
+        "weeks": 1,
+        "reminder_time": null,
+        "user": 2 
+      }
+    },
+
+        {
+      "model": "backendapp.plant",
+      "pk": 6,
+      "fields": {
+        "name": "Golum",
+        "description": "plant in the bedroom that watches you when you sleep",
+        "img_url": "google.com",
+        "days": 0,
+        "weeks": 2,
+        "reminder_time": null,
+        "user": 2 
+      }
+    }
+    
+]
