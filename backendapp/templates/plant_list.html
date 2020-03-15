@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Library</title>
+  </head>
+  <body>
+    <h1>Welcome to Your Plants</h1>
+
+    <ol>
+    {% for plant in user_plants %}
+        <li>
+            {{ plant.name }} 
+            <br>
+             {{plant.description}}
+        </li>
+    {% endfor %}
+    </ol>
+  </body>
+</html>
