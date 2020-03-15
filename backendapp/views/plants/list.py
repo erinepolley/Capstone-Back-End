@@ -5,10 +5,13 @@ from django.contrib.auth.models import User
 
 def plant_list(request):
     if request.method=='GET':
-        current_user = Plant.objects.get(user=request.auth.user)
+        current_user = request.user
+        # current_user = User.objects.get(user=request.user)
         user_plants = Plant.objects.filter(user=current_user)
 
-        template = 'plants/list.html'
+        
+
+        template = 'plant_list.html'
         context = {
                 'user_plants': user_plants
         }
