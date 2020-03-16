@@ -18,7 +18,5 @@ def plant_list(request):
                 'user_plants': user_plants
         }
 
-#Plant edit
 
-#Plant delete
         return render(request, template, context)
