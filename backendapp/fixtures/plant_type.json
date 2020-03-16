@@ -1,0 +1,33 @@
+[
+{
+    "model": "backendapp.planttype",
+    "pk": 1,
+    "fields": {
+      "plant_type": "Succulent"
+    }
+  },
+
+  {
+    "model": "backendapp.planttype",
+    "pk": 2,
+    "fields": {
+      "plant_type": "Herb"
+    }
+  },
+
+  {
+    "model": "backendapp.planttype",
+    "pk": 3,
+    "fields": {
+      "plant_type": "Flower"
+    }
+  },
+
+  {
+    "model": "backendapp.planttype",
+    "pk": 4,
+    "fields": {
+      "plant_type": "Other"
+    }
+  }
+]
