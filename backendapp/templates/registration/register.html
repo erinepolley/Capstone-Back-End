@@ -1,0 +1,10 @@
+<h2>Register</h2>
+<form method="post">
+    {% csrf_token %}
+<!--     These values will be saved as part of a new User instance -->
+    <input type="email" placeholder="email" name="email">
+    <input type="text" placeholder="username" name="username">
+    <input type="text" placeholder="password" name="password">
+  
+    <button type="submit">Create Account</button>
+</form>
