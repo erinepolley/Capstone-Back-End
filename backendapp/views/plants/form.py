@@ -10,7 +10,7 @@ def plant_form(request):
         plant_type_list = PlantType.objects.all()
         template = 'templates/plant_form.html'
         context = {
-            'plant_types' = plant_type_list
+            'plant_types': plant_type_list
         }
         return render(request, template, context)
       
