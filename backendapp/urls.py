@@ -10,5 +10,5 @@ urlpatterns = [
     path('plants/<int:plant_id>', plant_details, name='plant'),
     path('plant/form', plant_form, name='plant_form'),
     path('plants/<int:plant_id>/form/', plant_edit_form, name='plant_edit_form'),
-
+    path('register/', register_user, name="register"),
 ]

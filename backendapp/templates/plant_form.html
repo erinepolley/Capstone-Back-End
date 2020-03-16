@@ -13,18 +13,22 @@
         <form action="{% url 'backendapp:home' %}" method="post">
     {% endif %}
         {% csrf_token %}
+
         <fieldset>
             <label for="img_url">Upload image: </label>
             <input id="img_url" type="text" name="img_url" value="{{ plant.img_url }}">
         </fieldset>
+
         <fieldset>
             <label for="name">Name: </label>
             <input id="name" type="text" name="name" value="{{ plant.name }}">
         </fieldset>
+
         <fieldset>
             <label for="description">Species/Description: </label>
             <input id="description" type="text" name="description" value="{{ plant.description }}">
         </fieldset>
+
         <fieldset>
         <h3>How often does this plant need to be watered?</h3><br>
             <label for="day">Days: </label>
@@ -32,15 +36,19 @@
             <label for="week">Weeks: </label>
             <input id="week" type="number" name="week">
         </fieldset>
+
         <fieldset>
             <label for="plant_type">Plant Type: </label>
             <select id="plant_type" type="text" name="plant_type">
                 {% for type in plant_types %}
-                <option {% if plant_type.id == plant.type_id %}selected{% endif %} value="{{ plant_type.id }}">
-                    {{ plant_type.type }}</option>
-                {% endfor %}
+                {% comment %} <option value="{{ type.id }}">{{ type.type }}</option>
+                {% endfor %} {% endcomment %}
+              <option {% if type.id == plant.type_id %}selected{% endif %} value="{{ type.id }}">
+                    {{ type.plant_type }}</option>
+                {% endfor %} 
             </select>
         </fieldset>
+        
         <fieldset>
             <label for="notes">Notes: </label>
             <input id="notes" type="text" name="notes" value="{{ plant.notes }}">
