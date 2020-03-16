@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Plant Detail</title>
+  </head>
+  <body>
+    <h1>{{ plant.name }}</h1>
+    <ul>
+        <li>Name: {{ plant.name }}</li>
+        <li>Species/Description: {{ plant.description }}</li>
+        <li>Water every {{ plant.days }} days {{ plant.weeks }} weeks</li>
+        <li>Notes: {{ plant.notes }}</li>
+        <li>Days until next watering: {{ plant.reminder_time }}</li>
+    </ul>
+  </body>
+</html>
