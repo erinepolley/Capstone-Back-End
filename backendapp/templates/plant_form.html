@@ -8,7 +8,7 @@
 
 <body>
     {% if plant.id is not None %}
-        <form action="{% url 'backendapp:plant' plant.id %}" method="post">
+        <form action="{% url 'backendapp:plants' plant.plant_id %}" method="post">
     {% else %}
         <form action="{% url 'backendapp:home' %}" method="post">
     {% endif %}
