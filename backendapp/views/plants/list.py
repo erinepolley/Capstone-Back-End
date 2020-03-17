@@ -25,8 +25,8 @@ def plant_list(request):
         	img_url = form_data['img_url'],
             name = form_data['name'],
             description = form_data['description'],
-            days = form_data['day'],
-            weeks = form_data['week'],
+            days = form_data['days'],
+            weeks = form_data['weeks'],
             plant_type_id = form_data['plant_type'],
             notes = form_data['notes']
 		)
