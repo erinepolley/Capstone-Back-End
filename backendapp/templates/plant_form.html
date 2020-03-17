@@ -8,9 +8,9 @@
 
 <body>
     {% if plant.id is not None %}
-        <form action="{% url 'backendapp:plants' plant.plant_id %}" method="post">
+        <form action="{% url 'backendapp:plant' plant.id %}" method="post">
     {% else %}
-        <form action="{% url 'backendapp:home' %}" method="post">
+        <form action="{% url 'backendapp:plants' %}" method="post">
     {% endif %}
         {% csrf_token %}
 
@@ -31,19 +31,17 @@
 
         <fieldset>
         <h3>How often does this plant need to be watered?</h3><br>
-            <label for="day">Days: </label>
-            <input id="day" type="number" name="day">
-            <label for="week">Weeks: </label>
-            <input id="week" type="number" name="week">
+            <label for="days">Days: </label>
+            <input id="days" type="number" name="days" value="{{ plant.days }}">
+            <label for="weeks">Weeks: </label>
+            <input id="weeks" type="number" name="weeks" value="{{ plant.weeks }}">
         </fieldset>
 
         <fieldset>
             <label for="plant_type">Plant Type: </label>
             <select id="plant_type" type="text" name="plant_type">
                 {% for type in plant_types %}
-                {% comment %} <option value="{{ type.id }}">{{ type.type }}</option>
-                {% endfor %} {% endcomment %}
-              <option {% if type.id == plant.type_id %}selected{% endif %} value="{{ type.id }}">
+              <option {% if type.id == plant.plant_type_id %}selected{% endif %} value="{{ type.id }}">
                     {{ type.plant_type }}</option>
                 {% endfor %} 
             </select>
