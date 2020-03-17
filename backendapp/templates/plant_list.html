@@ -14,7 +14,14 @@
             {{ plant.name }} 
             <br>
              {{plant.description}}
+                {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %}
+        {% comment %} <a href="{% url 'libraryapp:book' book.id %}"><button id="detail--{{ plant.id }}">Details</button> {% endcomment %}
+            <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
+            {% csrf_token %}
+            <button>Details</button>
+        </form>
         </li>
+
     {% endfor %}
     </ol>
   </body>

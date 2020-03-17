@@ -48,7 +48,7 @@ def plant_details(request, plant_id):
             return redirect(reverse('backendapp:home'))
 
         # Check if this POST is for deleting a book
-        if (
+        elif (
             "actual_method" in form_data
             and form_data["actual_method"] == "DELETE"
         ):      
