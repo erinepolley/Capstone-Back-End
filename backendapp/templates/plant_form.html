@@ -10,7 +10,7 @@
     {% if plant.id is not None %}
         <form action="{% url 'backendapp:plant' plant.id %}" method="post">
     {% else %}
-        <form action="{% url 'backendapp:plants' %}" method="post">
+        <form action="{% url 'backendapp:home' %}" method="post">
     {% endif %}
         {% csrf_token %}
 
@@ -53,11 +53,25 @@
         </fieldset>
 
         {% if plant.id is not None %}
-            <input type="hidden" name="actual_method" value="PUT">
+            {% comment %} <input type="hidden" name="actual_method" value="PUT">
             <input type="submit" value="Update" />
+            <input type="hidden" name="actual_method" value="DELETE">
+            <input type="submit" value="Delete" /> {% endcomment %}
+        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="actual_method" value="PUT">
+            <button>Update</button>
+        </form>
+        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="actual_method" value="DELETE">
+            <button>Delete</button>
+        </form>
         {% else %}
             <input type="submit" value="Save" />
         {% endif %}
+
+
 
     </form>
 </body>

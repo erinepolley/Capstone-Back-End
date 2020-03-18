@@ -10,9 +10,24 @@
     <ul>
         <li>Name: {{ plant.name }}</li>
         <li>Species/Description: {{ plant.description }}</li>
+        <li>Plant Type: {{ plant_type.plant_type }}</li>
         <li>Water every {{ plant.days }} days {{ plant.weeks }} weeks</li>
         <li>Notes: {{ plant.notes }}</li>
         <li>Days until next watering: {{ plant.reminder_time }}</li>
     </ul>
+        <form action="{% url 'backendapp:home' %}" method="GET">
+            {% csrf_token %}
+            <button>Home</button>  
+        </form>
+        <form action="{% url 'backendapp:plant_edit_form' plant.id %}" method="GET">
+            <button>Edit</button>
+        </form>
+        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="actual_method" value="DELETE">
+            <button>Delete</button>
+        </form>
+
+        </form>
   </body>
 </html>

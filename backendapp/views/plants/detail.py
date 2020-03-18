@@ -1,19 +1,26 @@
 from django.shortcuts import redirect, render 
 from django.urls import reverse
-from backendapp.models import Plant
+from backendapp.models import Plant, PlantType
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 def get_plant(plant_id):
     return Plant.objects.get(pk=plant_id)
 
+def get_plant_type(plant_type_id):
+    return PlantType.objects.get(pk=plant_type_id)
+
 @login_required
 def plant_details(request, plant_id):
     if request.method == 'GET':
         plant = get_plant(plant_id)
-        plant_type = PlantType.objects.get()
+        plant_type = get_plant_type(plant.plant_type_id)
         template_name = 'plant_detail.html'
-        return render(request, template_name, {'plant': plant})
+        context = {
+            'plant': plant,
+            'plant_type': plant_type
+        }
+        return render(request, template_name, context)
 
     elif request.method == 'POST':
         form_data = request.POST
@@ -41,7 +48,7 @@ def plant_details(request, plant_id):
             return redirect(reverse('backendapp:home'))
 
         # Check if this POST is for deleting a book
-        if (
+        elif (
             "actual_method" in form_data
             and form_data["actual_method"] == "DELETE"
         ):      
