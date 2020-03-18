@@ -1,11 +1,7 @@
+{% extends 'shared/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Plant Detail</title>
-  </head>
-  <body>
+
+{% block content %}
     <h1>{{ plant.name }}</h1>
     <ul>
         <li>Name: {{ plant.name }}</li>
@@ -22,12 +18,11 @@
         <form action="{% url 'backendapp:plant_edit_form' plant.id %}" method="GET">
             <button>Edit</button>
         </form>
-        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+        {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
             <input type="hidden" name="actual_method" value="DELETE">
             <button>Delete</button>
-        </form>
+        </form> {% endcomment %}
 
         </form>
-  </body>
-</html>
+{% endblock %}
