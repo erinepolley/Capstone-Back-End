@@ -1,17 +1,28 @@
+import json
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def register_user(request):
-    """View method for handling creation of a new user for auth
-        Args:
-        request = full http object
-    """
-
+    '''Handles the creation of a new user for authentication
+    Method arguments:
+      request -- The full HTTP request object
+    '''
+    if request.method == "GET":
+        template_name = 'registration/register.html'
+        return render(request, template_name, {})
     # For handling when user submits the form data
-    if request.method == "POST":
-
+    elif request.method == "POST":
+        form_data = request.POST
+        # login_data = request.POST.dict()
+        # password1 = login_data.get("password")
+        # password2 = login_data.get("password2")
+        # if password1 == password2:
         # First create a new user using django's built in craziness. create_user is a method in django.
         new_user = User.objects.create_user(
             email=request.POST['email'],
@@ -19,13 +30,18 @@ def register_user(request):
             password=request.POST['password'],
         )
 
-        login(request, new_user)
+        authenticated_user = authenticate(
+            email=form_data['email'],
+            username=form_data['username'], 
+            password=form_data['password']
+        )
 
-        # Redirect the browser to wherever you want to go after registering
-        return redirect(reverse('backendapp:home'))
+        # If authentication was successful, log the user in
+        if authenticated_user is not None:
+            login(request=request, user=authenticated_user)
+            return redirect(reverse('backendapp:home'))
 
-    # handles a request to load the empty form for the user to fill out
-    else:
-        template = 'registration/register.html'
-
-    return render(request, template, {})
+        else:
+            # Bad login details were provided. We need to let them know they need to fix this.
+            print("Invalid login details: {}, {}".format(username, password))
+            return HttpResponse("Invalid login details supplied.")        
