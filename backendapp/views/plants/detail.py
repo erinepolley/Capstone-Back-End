@@ -4,6 +4,8 @@ from backendapp.models import Plant, PlantType
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
+#2020-03-19 23:18:27.162995
+
 def get_plant(plant_id):
     return Plant.objects.get(pk=plant_id)
 

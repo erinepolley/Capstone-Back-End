@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
-from rest_framework.authtoken.models import Token
+# from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
