@@ -3,50 +3,17 @@ from django.urls import reverse
 from backendapp.models import Plant, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-# import pyautogui
 from datetime import datetime, timezone, timedelta
-import schedule
-#This gets all the plants that the logged in user has added.
 
+#This gets all the plants that the logged in user has added.
 @login_required
 def plant_list(request):
 	#Upon page load...
 	if request.method=='GET':
 		#Let's see who's logged in and store it in a variable.
 		current_user = request.user
-		#What is today's date? Let's 1) make a datetime object and 2) extract it from there.
-		dateTimeObj = datetime.now(timezone.utc)
-		print("Today's full date time object", dateTimeObj)
-		justTodaysDate=dateTimeObj.date()
-		print("Just today's date", justTodaysDate)
-		#Let's get all the plants for this user.
 		user_plants = Plant.objects.filter(user=current_user)
-		#NOW for each of the user's plants...
-		for plant in user_plants:
-			#... we need to get the most recent watering date for that plant. This involves getting all the watering events of the plant, ordering them by most recent, and grabbing the most recent one off the top. 
-			most_recent_watering_object = WateringEvent.objects.filter(plant_id=plant.id).order_by('-time')[0]
-			# print("MOST RECENT WATERING", most_recent_watering_object)
-			#Then, let's isolate the date of the most recent watering.
-			justPlantWateringDate = most_recent_watering_object.time.date() 
-			# print("Just the plant's reminder date?", justPlantWateringDate)
-			dateThatPlantNeedsToBeWatered = justPlantWateringDate + timedelta(weeks=plant.weeks, days=plant.days)
-			# print("dateThatPlantNeedsToBeWatered", dateThatPlantNeedsToBeWatered)
-			if dateThatPlantNeedsToBeWatered <= justTodaysDate:
-				print(f'{plant.name} the {plant.description} needs to be watered!')
-			else:
-				print(f'{plant.name} the {plant.description} is fine.')
-
-
-
-			# difference_in_dates_integer = justTodaysDate - justPlantRemindDate 
-			# print("TIME DELTA", difference_in_dates_integer)
-			# if total_time < difference_in_dates_integer:
-			# 	 pyautogui.confirm(text=f'{plant.name} the {plant.description} needs to be watered!', title= 'Watering Time', buttons=['Water Now', 'Water Later'])
-			# else:
-			# 	pyautogui.confirm(text=f'{plant.name} the {plant.description} is fine.', title= 'Watering Time', buttons='Cool')	
-
-
-
+		print(user_plants)
 		template = 'plant_list.html'
 		context = {
 			'user_plants': user_plants

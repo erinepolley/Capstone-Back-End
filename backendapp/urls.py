@@ -4,7 +4,8 @@ from .views import *
 app_name = "backendapp"
 
 urlpatterns = [
-    path('', plant_list, name='home'),
+    path('', watering_list, name='watering'),
+    path('plants/', plant_list, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),
     path('plants/<int:plant_id>', plant_details, name='plant'),
