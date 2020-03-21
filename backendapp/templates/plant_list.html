@@ -10,7 +10,6 @@
             <br>
              {{plant.description}}
                 {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %}
-        {% comment %} <a href="{% url 'libraryapp:book' book.id %}"><button id="detail--{{ plant.id }}">Details</button> {% endcomment %}
         </li>
             <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
             {% csrf_token %}
