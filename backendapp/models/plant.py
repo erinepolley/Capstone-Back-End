@@ -12,4 +12,4 @@ class Plant(models.Model):
     days = models.IntegerField(default=0, null=True, blank=True)
     weeks = models.IntegerField(default=0, null=True, blank=True)
     notes = models.CharField(max_length=200)
-    reminder_time = models.DateTimeField(auto_now=True, null=True)
+    reminder_time = models.DateTimeField(auto_now=True, auto_now_add=False, null=True)

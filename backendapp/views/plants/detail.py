@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render 
 from django.urls import reverse
-from backendapp.models import Plant, PlantType
+from backendapp.models import Plant, PlantType, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
@@ -56,5 +56,14 @@ def plant_details(request, plant_id):
         ):      
             plant = Plant.objects.get(pk=plant_id)
             plant.delete()
-
             return redirect(reverse('backendapp:home'))
+  
+        else:
+            plant = get_plant(plant_id)
+            current_user = request.user
+            new_wateringevent = WateringEvent(
+                plant_id = plant.id
+            )
+            new_wateringevent.save()
+            return redirect(reverse('backendapp:home'))
+
