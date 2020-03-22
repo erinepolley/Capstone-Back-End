@@ -4,7 +4,7 @@ from backendapp.models import Plant
 from backendapp.models import PlantType
 from .detail import get_plant
 
-
+#Getting the add a plant form
 @login_required
 def plant_form(request):
     if request.method == 'GET':
@@ -14,7 +14,8 @@ def plant_form(request):
             'plant_types': plant_type_list
         }
         return render(request, template, context)
-      
+
+#Getting the plant edit form
 @login_required
 def plant_edit_form(request, plant_id):
     if request.method == 'GET':

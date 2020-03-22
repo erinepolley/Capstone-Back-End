@@ -4,7 +4,6 @@ from backendapp.models import Plant, PlantType, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import datetime, timezone, timedelta
-#2020-03-19 23:18:27.162995
 
 def get_plant(plant_id):
     return Plant.objects.get(pk=plant_id)
@@ -16,9 +15,6 @@ def get_plant_type(plant_type_id):
 def plant_details(request, plant_id):
     if request.method == 'GET':
         plant = get_plant(plant_id)
-        #Get last watering event.
-        # beenWateredBool = WateringEvent.objects.get(plant_id=plant.id)
-        # print(beenWateredBool)
         try:
             most_recent_watering_object = WateringEvent.objects.filter(plant_id=plant.id).order_by('-time')[0]
             # print('Most recent watering object', most_recent_watering_object)
@@ -38,9 +34,8 @@ def plant_details(request, plant_id):
             #Store this value in a variable?
             daysTilWatering = ((dateThatPlantNeedsToBeWatered - justTodaysDate).days)
 
-            # print('Days to next watering: %d' % ((dateThatPlantNeedsToBeWatered - justTodaysDate).days))
-        print('Days Until Watering', daysTilWatering)
-        #Sent it in context to 
+        # print('Days Until Watering', daysTilWatering)
+        #Sent it in context to the template
         plant_type = get_plant_type(plant.plant_type_id)
         template_name = 'plant_detail.html'
         context = {
@@ -82,13 +77,13 @@ def plant_details(request, plant_id):
             plant_to_update.weeks = weeks_value
             plant_to_update.plant_type_id = form_data['plant_type']
             plant_to_update.notes = form_data['notes']
-            # plant_to_update.reminder_time = form_data['reminder_time']
+
             # # Save the change to the db
             plant_to_update.save()
 
             return redirect(reverse('backendapp:home'))
 
-        # Check if this POST is for deleting a book
+        # Check if POST is really deleting a plant
         elif (
             "actual_method" in form_data
             and form_data["actual_method"] == "DELETE"

@@ -22,7 +22,7 @@ def plant_list(request):
 
 	elif request.method == 'POST':
 		form_data = request.POST
-
+        #When the user leaves days or weeks blank, the program throws an error. This is to set the value to 0 if the user leaves it blank without the error.
 		if form_data['days']:
 			days_value = form_data['days']
 		else:
@@ -43,7 +43,6 @@ def plant_list(request):
             weeks = weeks_value,
             plant_type_id = form_data['plant_type'],
             notes = form_data['notes'],
-			# reminder_time = reminder_time
 		)
             # # Save the change to the db
 		new_plant.save()
