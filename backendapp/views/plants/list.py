@@ -22,9 +22,9 @@ def plant_list(request):
 
 	elif request.method == 'POST':
 		form_data = request.POST
-		print('FORM DATA WEEKS', form_data['weeks'])
-		print('FORM DATA DAYS', form_data['days'])
-		reminder_time = datetime.now() + timedelta(weeks=form_data['weeks'], days=form_data['days'])
+		# print('FORM DATA WEEKS', form_data['weeks'])
+		# print('FORM DATA DAYS', form_data['days'])
+		# reminder_time = datetime.now() + timedelta(weeks=form_data['weeks'], days=form_data['days'])
 		current_user = request.user
 		new_plant = Plant(
 			user_id = current_user.id,
@@ -35,7 +35,7 @@ def plant_list(request):
             weeks = form_data['weeks'],
             plant_type_id = form_data['plant_type'],
             notes = form_data['notes'],
-			reminder_time = reminder_time
+			# reminder_time = reminder_time
 		)
             # # Save the change to the db
 		new_plant.save()
