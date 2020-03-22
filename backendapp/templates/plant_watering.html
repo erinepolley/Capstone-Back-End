@@ -1,0 +1,25 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <h1>Hello, {{ current_user.username }}.</h1>
+    {% if thirsty_plants %}
+    <h2>Thirsty Plants</h2>
+        <ol>
+        {% for plant in thirsty_plants %}
+            <li> {{ plant.name }} the {{plant.description}}</li>
+            <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+            {% csrf_token %}
+            <button on click="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
+            class="water-button">Water</button>
+            </form>
+        {% endfor %}
+        </ol>
+    {% else %}
+        <h2>No thirsty plants today.</h2>
+        <form action="{% url 'backendapp:watering' %}" method="GET">
+        {% csrf_token %}
+        <button class="home-button">Home</button>
+        </form>
+    {% endif %}
+{% endblock %}
+        
