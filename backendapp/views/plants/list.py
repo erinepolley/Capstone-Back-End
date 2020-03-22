@@ -22,17 +22,25 @@ def plant_list(request):
 
 	elif request.method == 'POST':
 		form_data = request.POST
-		# print('FORM DATA WEEKS', form_data['weeks'])
-		# print('FORM DATA DAYS', form_data['days'])
-		# reminder_time = datetime.now() + timedelta(weeks=form_data['weeks'], days=form_data['days'])
+
+		if form_data['days']:
+			days_value = form_data['days']
+		else:
+			days_value = 0
+
+		if form_data['weeks']:
+			weeks_value = form_data['weeks']
+		else:
+			weeks_value = 0
+
 		current_user = request.user
 		new_plant = Plant(
 			user_id = current_user.id,
         	img_url = form_data['img_url'],
             name = form_data['name'],
             description = form_data['description'],
-            days = form_data['days'],
-            weeks = form_data['weeks'],
+            days = days_value,
+            weeks = weeks_value,
             plant_type_id = form_data['plant_type'],
             notes = form_data['notes'],
 			# reminder_time = reminder_time
