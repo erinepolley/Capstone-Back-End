@@ -65,5 +65,5 @@ def plant_details(request, plant_id):
                 plant_id = plant.id
             )
             new_wateringevent.save()
-            return redirect(reverse('backendapp:home'))
+            return redirect(reverse('backendapp:watering'))
 

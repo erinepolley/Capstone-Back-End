@@ -35,7 +35,7 @@ def watering_list(request):
 			if dateThatPlantNeedsToBeWatered <= justTodaysDate:
 				listOfThirstyPlants.append(plant)
 				print(listOfThirstyPlants)
-				# print(f'{plant.name} the {plant.description} needs to be watered!')
+				print(f'{plant.name} the {plant.description} needs to be watered!')
 			else:
 				print(f'{plant.name} the {plant.description} is fine.')
 		#Let's send these thirsty plants to a template to let the user know!

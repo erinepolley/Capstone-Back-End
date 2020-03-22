@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Hello, {{ current_user.username }}.</h1>
-    {% if plant in thirsty_plants %}
+    {% if thirsty_plants %}
     <h2>Thirsty Plants</h2>
         <ol>
         {% for plant in thirsty_plants %}
@@ -16,7 +16,7 @@
         </ol>
     {% else %}
         <h2>No thirsty plants today.</h2>
-        <form action="{% url 'backendapp:home' %}" method="GET">
+        <form action="{% url 'backendapp:watering' %}" method="GET">
         {% csrf_token %}
         <button class="home-button">Home</button>
         </form>
