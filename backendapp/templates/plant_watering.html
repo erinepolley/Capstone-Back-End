@@ -19,7 +19,7 @@
 
     {% else %}
         <h3>No thirsty plants today.</h3>
-        <form action="{% url 'backendapp:home' %}" method="GET">
+        <form action="{% url 'backendapp:plants' %}" method="GET">
         {% csrf_token %}
         <button class="home-button">Home</button>
         </form>

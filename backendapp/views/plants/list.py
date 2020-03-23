@@ -46,4 +46,4 @@ def plant_list(request):
 		)
             # # Save the change to the db
 		new_plant.save()
-		return redirect(reverse('backendapp:home'))
+		return redirect(reverse('backendapp:plants'))

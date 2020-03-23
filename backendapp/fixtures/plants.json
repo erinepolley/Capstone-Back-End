@@ -7,7 +7,7 @@
         "description": "plant beside the window",
         "img_url": "google.com",
         "plant_type": 4,
-        "days": 5,
+        "days": 0,
         "weeks": 0,
         "user": 1 
       }
@@ -21,8 +21,8 @@
         "description": "Aloe Vera",
         "img_url": "google.com",
         "plant_type": 1,
-        "days": 0,
-        "weeks": 1,
+        "days": 1,
+        "weeks": 0,
         "user": 1 
       }
     },
@@ -35,9 +35,10 @@
         "description": "beast",
         "plant_type": 4,
         "img_url": "google.com",
-        "days": 3,
+        "days": 1,
         "weeks": 0,
-        "user": 1 
+        "user": 1,
+        "notes": "Sheila is a beautiful beast and is convalescing from an unfortunate frost accident last fall" 
       }
     },
 
@@ -49,7 +50,7 @@
         "description": "peace lily",
         "img_url": "google.com",
         "plant_type": 3,
-        "days": 8,
+        "days": 2,
         "weeks": 0,
         "user": 2 
       }
@@ -63,8 +64,8 @@
         "description": "plant in the pink pot",
         "plant_type": 4,
         "img_url": "google.com",
-        "days": 0,
-        "weeks": 1,
+        "days": 1,
+        "weeks": 0,
         "user": 2 
       }
     },
