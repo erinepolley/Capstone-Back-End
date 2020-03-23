@@ -47,25 +47,22 @@ def plant_details(request, plant_id):
 
     elif request.method == 'POST':
         form_data = request.POST
-        #When the user leaves days or weeks blank, the program throws an error. This is to set the value to 0 if the user leaves it blank without the error.
-        if form_data['days']:
-            days_value = form_data['days']
-        else:
-            days_value = 0
-
-        if form_data['weeks']:
-            weeks_value = form_data['weeks']
-        else:
-            weeks_value = 0
-
-        # print('DAYS VALUE!', days_value)
-        # print('WEEKS VALUE!', weeks_value)
 
         # Check if this POST is for editing a plant
         if (
             "actual_method" in form_data
             and form_data["actual_method"] == "PUT"
         ):
+        #When the user leaves days or weeks blank, the program throws an error. This is to set the value to 0 if the user leaves it blank without the error.
+            if form_data['days']:
+                days_value = form_data['days']
+            else:
+                days_value = 0
+
+            if form_data['weeks']:
+                weeks_value = form_data['weeks']
+            else:
+                weeks_value = 0
             #retrieving the plant to update
             plant_to_update = Plant.objects.get(pk=plant_id)
 
@@ -89,11 +86,12 @@ def plant_details(request, plant_id):
             and form_data["actual_method"] == "DELETE"
         ):      
             plant = Plant.objects.get(pk=plant_id)
+            print('PLANT DAYS', plant.days)
             plant.delete()
             return redirect(reverse('backendapp:home'))
   
         else:
-            plant = get_plant(plant_id)
+            plant = Plant.objects.get(pk=plant_id)
             current_user = request.user
             new_wateringevent = WateringEvent(
                 plant_id = plant.id

@@ -27,7 +27,7 @@ def plant_list(request):
 			days_value = form_data['days']
 		else:
 			days_value = 0
-
+			
 		if form_data['weeks']:
 			weeks_value = form_data['weeks']
 		else:
