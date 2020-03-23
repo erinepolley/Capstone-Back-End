@@ -13,23 +13,13 @@
     {% endblock %}
 </head>
 
-<body>
-
-    <nav id="site-nav">
-        <img class="logo" src="{% static 'images/GoodLeaf.svg' %}" alt="PlantPal logo">
-        <ul class="navList">
-            <li class="navList__route"><a href="{% url 'backendapp:home' %}">Home</a></li>
-            <li class="navList__route"><a href="{% url 'backendapp:watering' %}">Thirsty Plants</a></li>
-            <li class="navList__route"><a href="{% url 'backendapp:plant_form' %}">Add Plant</a></li>
-            <li class="navList__route"><a href="{% url 'backendapp:logout' %}">Log Out</a></li>
-        </ul>
-    </nav>
-
     <main class="main-content">
+    <h1 id="app-title">PlantPal</h1>
+    <img class="logo" src="{% static 'images/GoodLeaf.svg' %}" alt="PlantPal logo">
+
         {% block content %}
         {% endblock %}
     </main>
-
 
 <script src="{% static 'scripts/plant_water.js' %}"></script>
 

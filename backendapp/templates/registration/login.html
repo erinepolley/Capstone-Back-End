@@ -1,9 +1,11 @@
-<h1 id="app-title">PlantPal</h1>
+{% extends 'shared/base-login.html' %}
+{% load static %}
+{% block content %}
 <h2>Welcome!</h2>
-<h2>Please Sign In.</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>
 </form>
-    <a href="{% url 'backendapp:register' %}">Register for Account</a>
+    <a href="{% url 'backendapp:register' %}">Don't have an account? Register here.</a>
+{% endblock %}

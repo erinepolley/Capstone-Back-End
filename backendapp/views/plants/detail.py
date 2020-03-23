@@ -92,7 +92,6 @@ def plant_details(request, plant_id):
   
         else:
             plant = Plant.objects.get(pk=plant_id)
-            current_user = request.user
             new_wateringevent = WateringEvent(
                 plant_id = plant.id
             )
