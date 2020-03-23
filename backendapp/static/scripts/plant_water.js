@@ -6,3 +6,7 @@ document.querySelector(".thirsty-plant").addEventListener("click", (evt) => {
         alert(`${name} has been watered!`)
     }
 })
+
+document.querySelector(".delete-button").addEventListener("click", () => {
+    alert("Are you sure you want to delete this plant?")
+})

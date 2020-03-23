@@ -1,4 +1,7 @@
-<h2>Register</h2>
+{% extends 'shared/base-login.html' %}
+{% load static %}
+{% block content %}
+<h2>Please register.</h2>
 <form method="post">
     {% csrf_token %}
 <!--     These values will be saved as part of a new User instance -->
@@ -13,3 +16,4 @@
   
     <button type="submit">Create Account</button>
 </form>
+{% endblock %}

@@ -15,12 +15,12 @@
 
         <fieldset>
             <label for="name">Name: </label><br>
-            <input id="name" type="text" name="name" value="{{ plant.name }}">
+            <input id="name" type="text" name="name" value="{{ plant.name }}" required>
         </fieldset>
 
         <fieldset>
             <label for="description">Species/Description: </label><br>
-            <input id="description" type="text" name="description" value="{{ plant.description }}">
+            <input id="description" type="text" name="description" value="{{ plant.description }}" required>
         </fieldset>
 
         <fieldset>
@@ -47,16 +47,12 @@
         </fieldset>
 
         {% if plant.id is not None %}
-            {% comment %} <input type="hidden" name="actual_method" value="PUT">
-            <input type="submit" value="Update" />
-            <input type="hidden" name="actual_method" value="DELETE">
-            <input type="submit" value="Delete" /> {% endcomment %}
         <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
             <input type="hidden" name="actual_method" value="PUT">
             <button>Update</button>
         </form>
-        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+        <form class="delete-button" action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
             <input type="hidden" name="actual_method" value="DELETE">
             <button>Delete</button>

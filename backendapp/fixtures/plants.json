@@ -87,7 +87,7 @@
       "model": "backendapp.plant",
       "pk": 7,
       "fields": {
-        "name": "Levon Markham",
+        "name": "Levon",
         "description": "plant you forget about in the bathroom",
         "img_url": "google.com",
         "plant_type": 2,
@@ -108,6 +108,20 @@
         "weeks": 0,
         "user": 1 
       }
+    },
+    {
+      "model": "backendapp.plant",
+      "pk": 9,
+      "fields": {
+        "name": "Stud Muffin",
+        "description": "Spiky Succulent",
+        "img_url": "google.com",
+        "plant_type": 1,
+        "days": 3,
+        "weeks": 0,
+        "user": 1 
+      }
     }
+
     
 ]
