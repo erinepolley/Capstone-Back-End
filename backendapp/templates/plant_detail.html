@@ -9,7 +9,7 @@
         <li>Plant Type: {{ plant_type.plant_type }}</li>
         <li>Water every {{ plant.days }} days {{ plant.weeks }} weeks</li>
         <li>Notes: {{ plant.notes }}</li>
-        <li>Days until next watering: {{ plant.reminder_time }}</li>
+        <li>Days until next watering: {{ days_til_watering }}</li>
     </ul>
         <form action="{% url 'backendapp:home' %}" method="GET">
             {% csrf_token %}

@@ -16,7 +16,7 @@
         </ol>
     {% else %}
         <h2>No thirsty plants today.</h2>
-        <form action="{% url 'backendapp:watering' %}" method="GET">
+        <form action="{% url 'backendapp:home' %}" method="GET">
         {% csrf_token %}
         <button class="home-button">Home</button>
         </form>

@@ -63,6 +63,10 @@
         </form>
         {% else %}
             <input type="submit" value="Save" />
+        <form action="{% url 'backendapp:home' %}" method="GET">
+            {% csrf_token %}
+            <button>Cancel</button>
+        </form>
         {% endif %}
     </form>
 {% endblock %}
