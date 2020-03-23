@@ -4,5 +4,5 @@ from django.contrib.auth.models import User
 
 class WateringEvent(models.Model):
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
-    time = models.DateTimeField(auto_now_add=True, null=True)
+    time = models.DateField(auto_now_add=True, null=True)
     watered = models.BooleanField(default=True, null=True)    

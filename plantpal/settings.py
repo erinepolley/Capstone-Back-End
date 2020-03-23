@@ -24,7 +24,8 @@ SECRET_KEY = '#l-83!!&#o5hexfo*g6xxu(eva31p)soueze+%hzmas2(%zh9!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+TIME_ZONE = 'US/Central'
+USE_TZ = True 
 ALLOWED_HOSTS = []
 
 

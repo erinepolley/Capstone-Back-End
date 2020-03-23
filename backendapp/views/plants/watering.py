@@ -3,7 +3,7 @@ from django.urls import reverse
 from backendapp.models import Plant, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from datetime import datetime, timezone, timedelta
+from datetime import date, timezone, timedelta
 
 @login_required
 def watering_list(request):
@@ -12,9 +12,10 @@ def watering_list(request):
 		#Let's see who's logged in and store it in a variable.
 		current_user = request.user
 		#What is today's date? Let's 1) make a datetime object and 2) extract the date from there.
-		dateTimeObj = datetime.now(timezone.utc)
-		print("Today's full date time object", dateTimeObj)
-		justTodaysDate=dateTimeObj.date()
+		# dateTimeObj = datetime.now(timezone.cst)
+		# print("Today's full date time object", dateTimeObj)
+		# justTodaysDate=dateTimeObj.date()
+		justTodaysDate=date.today()
 		print("Just today's date", justTodaysDate)
 		#Let's get all the plants for this user.
 		user_plants = Plant.objects.filter(user=current_user)
@@ -27,7 +28,8 @@ def watering_list(request):
 				most_recent_watering_object = WateringEvent.objects.filter(plant_id=plant.id).order_by('-time')[0]
 				# print("MOST RECENT WATERING", most_recent_watering_object)
 				#Then, let's isolate the date of the most recent watering from the datetime.
-				justPlantWateringDate = most_recent_watering_object.time.date() 
+				# justPlantWateringDate = most_recent_watering_object.time.date() 
+				justPlantWateringDate = most_recent_watering_object.time
 				print("Most recent watering", justPlantWateringDate)
 				#Doing some simple math to determine the date that the plant needs to be watered.
 				dateThatPlantNeedsToBeWatered = justPlantWateringDate + timedelta(weeks=plant.weeks, days=plant.days)

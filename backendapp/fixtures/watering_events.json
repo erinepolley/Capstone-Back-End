@@ -3,10 +3,7 @@
       "model": "backendapp.wateringevent",
       "pk": 1,
       "fields": {
-        "user": 1,
-        "plant": 1,
-        "time": null,
-        "watered": false
+        "plant": 1
       }
     },
   
@@ -14,10 +11,7 @@
       "model": "backendapp.wateringevent",
       "pk": 2,
       "fields": {
-        "user": 1,
-        "plant": 1,
-        "time": null,
-        "watered": true
+        "plant": 1
       }
     },
 
@@ -25,10 +19,7 @@
       "model": "backendapp.wateringevent",
       "pk": 3,
       "fields": {
-        "user": 1,
-        "plant": 3,
-        "time": null,
-        "watered": false
+        "plant": 2
       }
     },
 
@@ -36,10 +27,7 @@
       "model": "backendapp.wateringevent",
       "pk": 4,
       "fields": {
-        "user": 2,
-        "plant": 4,
-        "time": null,
-        "watered": true
+        "plant": 3
       }
     },
   
@@ -47,10 +35,7 @@
       "model": "backendapp.wateringevent",
       "pk": 5,
       "fields": {
-        "user": 2,
-        "plant": 5,
-        "time": null,
-        "watered": false
+        "plant": 4
       }
     },
 
@@ -58,10 +43,7 @@
       "model": "backendapp.wateringevent",
       "pk": 6,
       "fields": {
-        "user": 2,
-        "plant": 6,
-        "time": null,
-        "watered": true
+        "plant": 4
       }
     }
 ]
