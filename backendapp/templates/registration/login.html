@@ -2,10 +2,11 @@
 {% load static %}
 {% block content %}
 <h2>Welcome!</h2>
-<form method="post">
+ <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>
-</form>
+ </form>
+
     <a href="{% url 'backendapp:register' %}">Don't have an account? Register here.</a>
 {% endblock %}

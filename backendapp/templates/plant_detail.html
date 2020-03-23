@@ -11,7 +11,7 @@
         <li>Notes: {{ plant.notes }}</li>
         <li>Days until next watering: {{ days_til_watering }}</li>
     </ul>
-        <form action="{% url 'backendapp:home' %}" method="GET">
+        <form action="{% url 'backendapp:plants' %}" method="GET">
             {% csrf_token %}
             <button>Home</button>  
         </form>

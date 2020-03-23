@@ -78,7 +78,7 @@ def plant_details(request, plant_id):
             # # Save the change to the db
             plant_to_update.save()
 
-            return redirect(reverse('backendapp:home'))
+            return redirect(reverse('backendapp:plants'))
 
         # Check if POST is really deleting a plant
         elif (
@@ -88,7 +88,7 @@ def plant_details(request, plant_id):
             plant = Plant.objects.get(pk=plant_id)
             print('PLANT DAYS', plant.days)
             plant.delete()
-            return redirect(reverse('backendapp:home'))
+            return redirect(reverse('backendapp:plants'))
   
         else:
             plant = Plant.objects.get(pk=plant_id)

@@ -4,7 +4,7 @@
     {% if plant.id is not None %}
         <form action="{% url 'backendapp:plant' plant.id %}" method="post">
     {% else %}
-        <form action="{% url 'backendapp:home' %}" method="post">
+        <form action="{% url 'backendapp:plants' %}" method="post">
     {% endif %}
         {% csrf_token %}
 
@@ -59,7 +59,7 @@
         </form>
         {% else %}
             <input type="submit" value="Save" />
-        <form action="{% url 'backendapp:home' %}" method="GET">
+        <form action="{% url 'backendapp:plants' %}" method="GET">
             {% csrf_token %}
             <button>Cancel</button>
         </form>
