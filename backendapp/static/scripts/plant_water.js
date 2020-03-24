@@ -7,9 +7,19 @@ document.querySelector("form").addEventListener("click", (evt) => {
     }
 })
 
-// document.querySelector("form").addEventListener("click", (event) => {
-//     console.log("is this getting hit?")
-//     if (event.target.id.startsWith("delete-button")) {
-//         confirm(`Are you sure you want to delete this plant?`)
-//     }
-// })
+// let mainNav = document.getElementById('menu-items');
+// let hamburgerContainer = document.getElementById('hamburger-container');
+
+// hamburgerContainer.addEventListener('click', () => {
+//     mainNav.classList.toggle('active');
+// });
+
+const responsiveNav = () => {
+    let menu = document.getElementById("menu-items");
+    if (menu.className === "topnav") {
+      menu.className += " responsive";
+    } else {
+      menu.className = "topnav";
+    }
+  }
+

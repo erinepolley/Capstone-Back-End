@@ -2,15 +2,14 @@
 
 {% block content %}
     <h1>My Houseplants</h1>
-
+    
     <div class="plant-card-flexbox">
     {% for plant in user_plants %}
-        <p>
-            {{ plant.name }} 
-            <br>
-             {{plant.description}}
-                {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %}
-        </p>
+    <div class="plant-card">
+        <p>{{ plant.name }}</p>
+        <p>{{plant.description}}</p>
+                {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %} 
+        {% comment %} <div class="details-buttons-flexbox"> {% endcomment %}
             <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
             {% csrf_token %}
             <button class="button">Details</button>
@@ -20,7 +19,8 @@
             <button onclick="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
             class="water-button">Water</button>
             </form>
-
+            </div>
+        {% comment %} </div> {% endcomment %}
     {% endfor %}
     </div>
 {% endblock %}
