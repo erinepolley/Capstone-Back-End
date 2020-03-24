@@ -30,11 +30,7 @@ def plant_details(request, plant_id):
             # justPlantWateringDate = most_recent_watering_object.time.date()
             #Add plant.days/plant.weeks to it.
             dateThatPlantNeedsToBeWatered = justPlantWateringDate + timedelta(weeks=plant.weeks, days=plant.days)
-            # dateTimeObj = datetime.now(timezone.utc)
-            # justTodaysDate=dateTimeObj.date()
             #Subtract today's date from date to be watered.
-            #Store this value in a variable?
-            # daysTilWatering = (dateThatPlantNeedsToBeWatered - justTodaysDate)
             daysTilWatering = ((dateThatPlantNeedsToBeWatered - justTodaysDate).days)
 
         print('Days Until Watering', daysTilWatering)

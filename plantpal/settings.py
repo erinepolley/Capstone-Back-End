@@ -24,9 +24,6 @@ SECRET_KEY = '#l-83!!&#o5hexfo*g6xxu(eva31p)soueze+%hzmas2(%zh9!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-TIME_ZONE = 'US/Central'
-USE_TZ = True 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -120,5 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'

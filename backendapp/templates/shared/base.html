@@ -15,9 +15,9 @@
 
 <body>
 
-    <nav id="site-nav">
+    <nav class="navbar-container">
         <img class="logo" src="{% static 'images/GoodLeaf.svg' %}" alt="PlantPal logo">
-        <ul class="navList">
+        <ul class="navbar-links">
             <li class="navList__route"><a href="{% url 'backendapp:plants' %}">Home</a></li>
             <li class="navList__route"><a href="{% url 'backendapp:home' %}">Thirsty Plants</a></li>
             <li class="navList__route"><a href="{% url 'backendapp:plant_form' %}">Add Plant</a></li>
