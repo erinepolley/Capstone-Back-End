@@ -1,7 +1,60 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    font-family: 'Open Sans', sans-serif
+    font-family: 'Open Sans', sans-serif;
+    /* background-image: url("../images/geometric-leaves.png"); */
+    background-image: url("../images/succulents.png");
+    background-repeat: repeat;
 }
 
 #app-title {
-    font-family: 'Architects Daughter', sans-serif
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 70px;
+}
+
+.title-logo-flexbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    max-height: 75px;
+}
+
+.no-thirsty-today {
+    padding-top: 50px 
+}
+
+
+.plant-card-flexbox {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.plant-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 25px;
+    opacity: .8;
+}
+/* .details-container */
+
+.details-buttons-flexbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.days-weeks {
+    display: flex;
+    flex-direction: row;
 }

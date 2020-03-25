@@ -3,20 +3,20 @@
 
 {% block content %}
     <h1>{{ plant.name }}</h1>
-    <ul>
-        <li>Name: {{ plant.name }}</li>
-        <li>Species/Description: {{ plant.description }}</li>
-        <li>Plant Type: {{ plant_type.plant_type }}</li>
-        <li>Water every {{ plant.days }} days {{ plant.weeks }} weeks</li>
-        <li>Notes: {{ plant.notes }}</li>
-        <li>Days until next watering: {{ days_til_watering }}</li>
-    </ul>
+    <div class="details-container">
+        <p>Name: {{ plant.name }}</p>
+        <p>Species/Description: {{ plant.description }}</p>
+        <p>Plant Type: {{ plant_type.plant_type }}</p>
+        <p>Water every {{ plant.days }} days, {{ plant.weeks }} weeks</p>
+        <p>Notes: {{ plant.notes }}</p>
+        <p>{{ days_til_watering }} day(s) until {{ plant.name }} is thirsty again.</p>
+    </div>
         <form action="{% url 'backendapp:plants' %}" method="GET">
             {% csrf_token %}
-            <button>Home</button>  
+            <button class="btn btn-primary">Home</button>  
         </form>
         <form action="{% url 'backendapp:plant_edit_form' plant.id %}" method="GET">
-            <button>Edit</button>
+            <button class="btn btn-warning">Edit</button>
         </form>
 
         </form>

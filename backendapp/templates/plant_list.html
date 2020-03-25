@@ -2,25 +2,26 @@
 
 {% block content %}
     <h1>My Houseplants</h1>
-
-    <ol>
+    
+    <div class="plant-card-flexbox">
     {% for plant in user_plants %}
-        <li>
-            {{ plant.name }} 
-            <br>
-             {{plant.description}}
-                {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %}
-        </li>
+    <div class="plant-card">
+        <p>{{ plant.name }} the {{plant.description}}</p>
+        <p>{{ days_til_watering }} day(s) until {{ plant.name }} is thirsty again.</p>
+
+                {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %} 
+        {% comment %} <div class="details-buttons-flexbox"> {% endcomment %}
             <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
             {% csrf_token %}
-            <button>Details</button>
+            <button class="btn btn-primary">Details</button>
             </form>
             <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
             <button onclick="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
-            class="water-button">Water</button>
+            class="btn btn-info">Water Me</button>
             </form>
-
+            </div>
+        {% comment %} </div> {% endcomment %}
     {% endfor %}
-    </ol>
+    </div>
 {% endblock %}
