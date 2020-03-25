@@ -12,12 +12,23 @@ body {
 }
 
 #app-title {
-    font-family: 'Architects Daughter', sans-serif
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 70px;
+}
+
+.title-logo-flexbox {
+    display: flex;
+    flex-direction: row;
 }
 
 .logo {
     max-height: 75px;
 }
+
+.no-thirsty-today {
+    padding-top: 50px 
+}
+
 
 .plant-card-flexbox {
     display: flex;
@@ -34,6 +45,7 @@ body {
     text-align: center;
     background-color: white;
     margin-bottom: 25px;
+    opacity: .8;
 }
 /* .details-container */
 

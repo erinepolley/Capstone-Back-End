@@ -18,7 +18,7 @@
         </ol>
 
     {% else %}
-        <h3>No thirsty plants today.</h3>
+        <h3 class="no-thirsty-today">No thirsty plants today.</h3>
         <form action="{% url 'backendapp:plants' %}" method="GET">
         {% csrf_token %}
         <button class="btn btn-primary">Home</button>
