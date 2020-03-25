@@ -7,9 +7,9 @@
         <p>Name: {{ plant.name }}</p>
         <p>Species/Description: {{ plant.description }}</p>
         <p>Plant Type: {{ plant_type.plant_type }}</p>
-        <p>Water every {{ plant.days }} days {{ plant.weeks }} weeks</p>
+        <p>Water every {{ plant.days }} days, {{ plant.weeks }} weeks</p>
         <p>Notes: {{ plant.notes }}</p>
-        <p>Days until next watering: {{ days_til_watering }}</p>
+        <p>{{ days_til_watering }} day(s) until {{ plant.name }} is thirsty again.</p>
     </div>
         <form action="{% url 'backendapp:plants' %}" method="GET">
             {% csrf_token %}

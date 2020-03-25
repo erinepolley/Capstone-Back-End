@@ -20,6 +20,7 @@ def plant_form(request):
 def plant_edit_form(request, plant_id):
     if request.method == 'GET':
         plant = get_plant(plant_id)
+        print(plant.notes)
         plant_type_list = PlantType.objects.all()
         template = 'plant_form.html'
         context = {

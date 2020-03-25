@@ -3,7 +3,7 @@ from django.urls import reverse
 from backendapp.models import Plant, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from datetime import datetime, timezone, timedelta
+from datetime import date, timedelta
 
 #This gets all the plants that the logged in user has added.
 @login_required
@@ -13,10 +13,30 @@ def plant_list(request):
 		#Let's see who's logged in and store it in a variable.
 		current_user = request.user
 		user_plants = Plant.objects.filter(user=current_user)
-		print(user_plants)
+		# for plant in user_plants:
+		# daysTilWatering = get_days_until_next_watering(plant)
+		#add new key value pair to the object
+		# 	justTodaysDate=date.today()
+		# 	try:
+		# 		most_recent_watering_object = WateringEvent.objects.filter(plant_id=plant.id).order_by('-time')[0]
+		# 		# print('Most recent watering object', most_recent_watering_object)
+		# 	except:
+		# 		# dateTimeObj = datetime.now(timezone.utc)
+		# 		# justTodaysDate=dateTimeObj.date()
+		# 		dateThatPlantNeedsToBeWatered = justTodaysDate + timedelta(weeks=plant.weeks, days=plant.days)
+		# 		daysTilWatering = ((dateThatPlantNeedsToBeWatered - justTodaysDate).days)
+		# 	else:
+		# 		justPlantWateringDate = most_recent_watering_object.time
+		# 		#Add plant.days/plant.weeks to it.
+		# 		dateThatPlantNeedsToBeWatered = justPlantWateringDate + timedelta(weeks=plant.weeks, days=plant.days)
+		# 		#Subtract today's date from date to be watered.
+		# 		daysTilWatering = ((dateThatPlantNeedsToBeWatered - justTodaysDate).days)
+		# 	print('Days Until Watering', daysTilWatering)
+
 		template = 'plant_list.html'
 		context = {
-			'user_plants': user_plants
+			'user_plants': user_plants,
+			# 'days_til_watering': daysTilWatering
 		}
 		return render(request, template, context)
 
