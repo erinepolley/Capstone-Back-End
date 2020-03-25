@@ -13,10 +13,10 @@
     </div>
         <form action="{% url 'backendapp:plants' %}" method="GET">
             {% csrf_token %}
-            <button class="button">Home</button>  
+            <button class="btn btn-primary">Home</button>  
         </form>
         <form action="{% url 'backendapp:plant_edit_form' plant.id %}" method="GET">
-            <button class="edit-button">Edit</button>
+            <button class="btn btn-warning">Edit</button>
         </form>
 
         </form>

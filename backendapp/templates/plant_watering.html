@@ -12,8 +12,8 @@
             <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
             <button on click="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
-            class="water-button" id="water--{{ plant.name }}">Water</button>
-            </form>
+            class="btn btn-info" id="water--{{ plant.name }}">Water Me!</button>
+         </form>
         {% endfor %}
         </ol>
 
@@ -21,7 +21,7 @@
         <h3>No thirsty plants today.</h3>
         <form action="{% url 'backendapp:plants' %}" method="GET">
         {% csrf_token %}
-        <button class="button">Home</button>
+        <button class="btn btn-primary">Home</button>
         </form>
     {% endif %}
 

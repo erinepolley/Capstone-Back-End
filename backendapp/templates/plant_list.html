@@ -12,12 +12,12 @@
         {% comment %} <div class="details-buttons-flexbox"> {% endcomment %}
             <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
             {% csrf_token %}
-            <button class="button">Details</button>
+            <button class="btn btn-primary">Details</button>
             </form>
             <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
             <button onclick="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
-            class="water-button">Water</button>
+            class="btn btn-info">Water Me</button>
             </form>
             </div>
         {% comment %} </div> {% endcomment %}
