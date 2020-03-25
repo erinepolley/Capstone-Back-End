@@ -1,5 +1,19 @@
-# Working Title: Plant Pal
+# PlantPal: A Watering Reminder App
 
-This is the repo for my back end capstone.
+::Gif Demo coming soon...::
 
-![Back End Capstone ERD](ERD_3_15.png)
+## An App for Thirsty Plants Everywhere
+
+PlantPal is an app that reminds users when to water their plants. Users can save their plants to the database, log how often their plants need to be watered, and be informed when it’s time. Marking plants as watered resets the time so users can do it all over again.
+
+## Why I Built This
+
+I can't tell you exactly how many houseplants I've killed, but it's a lot. Most. All? Basically, I've overwatered many a succulent and underwatered many a flower. That's also a story I've consistently heard from other people. I love having plants in the house and decided that our plants deserve better. That's when Plant Pal was born.
+
+Technologies used: Python, Django, Bootstrap (in the form of Bootswatch)
+
+## Instructions for Using PlantPal
+
+## Plant Pal Entity Relationship Diagram.
+
+![Back End Capstone ERD](ERD325.png)
