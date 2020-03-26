@@ -11,13 +11,14 @@ PlantPal is an app that reminds users when to water their plants. Users can save
 I can't tell you exactly how many houseplants I've killed, but it's a lot. Most. All? Basically, I've overwatered many a succulent and underwatered many a flower. That's also a story I've consistently heard from other people. I love having plants in the house and decided that our plants deserve better. That's when Plant Pal was born.
 
 Technologies used: Python, Django, Bootstrap (in the form of Bootswatch), Visual Studio Code, SQLite, GitHub, DBeaver
-![Python](readme-images/Python.png) {:height="250px" width="250px"}
+<img src="readme-images/Python.png" height="75" alt="Python" margin-right="10px"/>
+<!-- ![Python](readme-images/Python.png) 
 ![Django](readme-images/Django.png)
 ![GitHub](readme-images/GitHub.png)
 ![SQLite](readme-images/SQLite.png)
 ![Bootstrap](readme-images/Bootstrap.png)
 ![VSCode](readme-images/VSCode.jpg)
-![DBeaver](readme-images/DBeaver.png)
+![DBeaver](readme-images/DBeaver.png) -->
 
 ## Instructions for Using PlantPal
 
