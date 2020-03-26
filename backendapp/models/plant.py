@@ -11,5 +11,4 @@ class Plant(models.Model):
     img_url = models.ImageField(upload_to='media', blank=True)
     days = models.IntegerField(default=0, null=True, blank=True)
     weeks = models.IntegerField(default=0, null=True, blank=True)
-    notes = models.CharField(max_length=200)
-    reminder_time = models.DateTimeField(auto_now=True, auto_now_add=False, null=True)
+    notes = models.TextField()

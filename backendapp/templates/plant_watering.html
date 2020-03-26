@@ -10,14 +10,13 @@
         {% for plant in thirsty_plants %}
         <div class="plant-card">
             <li> {{ plant.name }} the {{plant.description}} is thirsty!</li>
-            <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+            <form class="form-event-listener" action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
-            <button id="water--{{ plant.name }}"
-            class="btn btn-info water-me-list-button" id="water--{{ plant.name }}">Water Me!</button>
+            <button class="btn btn-info water-me-list-button" id="water--{{ plant.name }}">Water Me!</button>
          </form>
+        </div>
         {% endfor %}
         </ol>
-        </div>
 </div>        
 
     {% else %}
