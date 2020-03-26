@@ -19,10 +19,10 @@ Technologies used: Python, Django, Bootstrap (in the form of Bootswatch), Visual
 `git@github.com:erinepolley/Capstone-Back-End.git`
 
 2. Cd into the repo: `cd plantpal`
-3. Create a virtual environment:
+3. Create a virtual environment:  
 Windows:
   - `python -m venv capstoneEnv`
-  - `source ./capstoneEnv/Scripts/activate`
+  - `source ./capstoneEnv/Scripts/activate`  
 Mac:
   - `python -m venv capstoneEnv`
   - `source ./capstoneEnv/bin/activate`
