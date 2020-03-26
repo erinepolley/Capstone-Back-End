@@ -1,7 +1,8 @@
 console.log("Hullo!")
 
-document.querySelector("form").addEventListener("click", (evt) => {
-    if (evt.target.id.startsWith("water")) {
+document.querySelector("body").addEventListener("click", (evt) => {
+  // alert("The water button was just clicked.")
+  if (evt.target.id.startsWith("water")) {
         const name = evt.target.id.split("--")[1]
         alert(`${name} has been watered!`)
     }

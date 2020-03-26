@@ -22,21 +22,22 @@ def watering_list(request):
 			try:
 			#... we need to get the most recent watering date for that plant. This involves getting all the watering events of the plant, ordering them by most recent, and grabbing the most recent one off the top. 
 				most_recent_watering_object = WateringEvent.objects.filter(plant_id=plant.id).order_by('-time')[0]
-				# print("MOST RECENT WATERING", most_recent_watering_object)
 				#Then, let's isolate the date of the most recent watering from the datetime.
 				justPlantWateringDate = most_recent_watering_object.time
-				# print("Most recent watering", justPlantWateringDate)
+				print("Most recent watering", justPlantWateringDate)
 				#Doing some simple math to determine the date that the plant needs to be watered.
 				dateThatPlantNeedsToBeWatered = justPlantWateringDate + timedelta(weeks=plant.weeks, days=plant.days)
-				# print("dateThatPlantNeedsToBeWatered", dateThatPlantNeedsToBeWatered)
+				print("dateThatPlantNeedsToBeWatered", dateThatPlantNeedsToBeWatered)
 			except:
-				dateThatPlantNeedsToBeWatered = justTodaysDate + timedelta(weeks=plant.weeks, days=plant.days)		
-			#If today's date is past the date that the plant needs to be watered, add the plant to the thirsty plant list.
+				dateThatPlantNeedsToBeWatered = justTodaysDate
+				print("NEW PLANT, WATERING DUE DATE", dateThatPlantNeedsToBeWatered)	
+			#If today's date is equal to or past the date that the plant needs to be watered, add the plant to the thirsty plant list.
 			if dateThatPlantNeedsToBeWatered <= justTodaysDate:
+				print("THIRSTY PLANT", plant.name)
 				listOfThirstyPlants.append(plant)
 				# print(listOfThirstyPlants)
-			# else:
-			# 	print(f'{plant.name} the {plant.description} is fine.')
+			else:
+				print(f'{plant.name} the {plant.description} is fine.')
 		#Let's send these thirsty plants to a template to let the user know!
 		template = 'plant_watering.html'
 		context = {

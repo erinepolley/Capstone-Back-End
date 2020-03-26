@@ -60,7 +60,7 @@
         <fieldset>
           <div class="form-group">
             <label class="col-form-label" for="notes">Notes: </label><br>
-            <input class="form-control" id="notes" type="text" name="notes" value="{{ plant.notes }}" rows="3"></input>
+            <textarea class="form-control" id="notes" type="textarea" name="notes" value="{{ plant.notes }}" rows="3"></textarea>
           </div>
         </fieldset>
 
@@ -75,26 +75,13 @@
     {% else %}
         <div class="save-cancel-flexbox">
         <input type="submit" class="btn btn-primary" value="Save">
-        
-    {% comment %} {% if plant.id is not None %}
-        
-        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
-        <input type="hidden" name="actual_method" value="PUT">
-        {% csrf_token %}
-        <button class="btn btn-primary">Update</button>
-        </form>
 
-        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
-        <input type="hidden" name="actual_method" value="DELETE">
+        {% comment %} <div class="form-container">
+        {% comment %} <form class="add-edit-form" action="{% url 'backendapp:plants' %}" method="GET">
         {% csrf_token %}
-        <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this plant?')">Delete</button>
-        </form> {% endcomment %}
-        {% comment %} <div class="form-container"> {% endcomment %}
-        <form class="add-edit-form" action="{% url 'backendapp:plants' %}" method="GET">
-        {% csrf_token %}
-        <button class="btn btn-warning">Cancel</button>
+        <button class="btn btn-warning">Cancel</button> {% endcomment %}
         {% endif %}
-        </form>
+        {% comment %} </form> {% endcomment %}
         {% comment %} </div> {% endcomment %}
         </div>
 
