@@ -11,7 +11,7 @@ PlantPal is an app that reminds users when to water their plants. Users can save
 I can't tell you exactly how many houseplants I've killed, but it's a lot. Most. All? Basically, I've overwatered many a succulent and underwatered many a flower. That's also a story I've consistently heard from other people. I love having plants in the house and decided that our plants deserve better. That's when Plant Pal was born.
 
 Technologies used: Python, Django, Bootstrap (in the form of Bootswatch), Visual Studio Code, SQLite, GitHub, DBeaver
-<img src="readme-images/Python.png" height="75" alt="Python" margin-right="10px"/><img src="readme-images/Django.png" height="75" alt="Django" margin-right="10px"/><img src="readme-images/GitHub.png" height="75" alt="GitHub" margin-right="10px"/><img src="readme-images/SQLite.png" height="75" alt="SQLite" margin-right="10px"/><img src="readme-images/Bootstrap.png" height="75" alt="Bootstrap" margin-right="10px"/><img src="readme-images/VSCode.png" height="75" alt="VSCode" margin-right="10px"/><img src="readme-images/DBeaver.png" height="75" alt="DBeaver" margin-right="10px"/>
+<img src="readme-images/Python.png" height="75" alt="Python" padding-right="10px"/><img src="readme-images/Django.png" height="75" alt="Django" margin-right="10px"/><img src="readme-images/GitHub.png" height="75" alt="GitHub" margin-right="10px"/><img src="readme-images/SQLite.png" height="75" alt="SQLite" margin-right="10px"/><img src="readme-images/Bootstrap.png" height="75" alt="Bootstrap" margin-right="10px"/><img src="readme-images/VSCode.jpg" height="75" alt="VSCode" margin-right="10px"/><img src="readme-images/DBeaver.png" height="75" alt="DBeaver" margin-right="10px"/>
 
 ## Instructions for Using PlantPal
 
@@ -21,17 +21,17 @@ Technologies used: Python, Django, Bootstrap (in the form of Bootswatch), Visual
 2. Cd into the repo: `cd plantpal`
 3. Create a virtual environment:
 Windows:
-  1. `python -m venv capstoneEnv`
-  1. `source ./capstoneEnv/Scripts/activate`
+  - `python -m venv capstoneEnv`
+  - `source ./capstoneEnv/Scripts/activate`
 Mac:
-  1. `python -m venv capstoneEnv`
-  1. `source ./capstoneEnv/bin/activate`
+  - `python -m venv capstoneEnv`
+  - `source ./capstoneEnv/bin/activate`
 4. Install dependencies: `pip install -r requirements.txt`
 5. Create a database:
-1. `python manage.py makemigrations`
-1. `python manage.py migrate`
+  - `python manage.py makemigrations`
+  - `python manage.py migrate`
 6. Load "plant type" data in database from fixtures:
-1. `python manage.py loaddata plant_type.json`
+  - `python manage.py loaddata plant_type.json`
 7. Run the server: `python manage.py runserver`
 8. Navigate to http://localhost:8000/ 
 9. Enjoy worry-free watering of your houseplants!
