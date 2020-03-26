@@ -2,15 +2,17 @@
 {% load static %}
 
 {% block content %}
-    <h1>{{ plant.name }}</h1>
-    <div class="details-container">
+    <div class="form-container">
+    <div class="add-edit-form">
+    <h1>{{ plant.name }}'s Details</h1>
         <p>Name: {{ plant.name }}</p>
         <p>Species/Description: {{ plant.description }}</p>
         <p>Plant Type: {{ plant_type.plant_type }}</p>
         <p>Water every {{ plant.days }} days, {{ plant.weeks }} weeks</p>
         <p>Notes: {{ plant.notes }}</p>
         <p>{{ days_til_watering }} day(s) until {{ plant.name }} is thirsty again.</p>
-    </div>
+
+    <div class="save-cancel-flexbox">
         <form action="{% url 'backendapp:plants' %}" method="GET">
             {% csrf_token %}
             <button class="btn btn-primary">Home</button>  
@@ -18,6 +20,7 @@
         <form action="{% url 'backendapp:plant_edit_form' plant.id %}" method="GET">
             <button class="btn btn-warning">Edit</button>
         </form>
-
-        </form>
+    </div>
+        </div>
+        </div>
 {% endblock %}
