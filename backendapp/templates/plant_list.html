@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <h1>My Houseplants</h1>
+    <h1 class="page-heading">My Houseplants</h1>
     
     <div class="plant-card-flexbox">
     {% for plant in user_plants %}
@@ -11,6 +11,7 @@
 
                 {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %} 
         {% comment %} <div class="details-buttons-flexbox"> {% endcomment %}
+            <div class="list-buttons-flexbox">
             <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
             {% csrf_token %}
             <button class="btn btn-primary">Details</button>
@@ -20,6 +21,7 @@
             <button onclick="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
             class="btn btn-info">Water Me</button>
             </form>
+            </div>
             </div>
         {% comment %} </div> {% endcomment %}
     {% endfor %}

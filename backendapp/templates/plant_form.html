@@ -4,7 +4,7 @@
         <div class="form-container">
         <form class="add-edit-form" action="{% url 'backendapp:plant' plant.id %}" method="POST">
     {% else %}
-        <h1>Add Plant</h1>
+        <h1 class="page-heading">Add Plant</h1>
         <div class="form-container">
         <form class="add-edit-form" action="{% url 'backendapp:plants' %}" method="post">
         {% comment %} enctype="multipart/form-data" {% endcomment %}

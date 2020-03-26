@@ -9,6 +9,7 @@ body {
     /* background-image: url("../images/geometric-leaves.png"); */
     background-image: url("../images/succulents.png");
     background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 #app-title {
@@ -16,10 +17,18 @@ body {
     font-size: 70px;
 }
 
+/* Don't have an account? link at bottom of login */
+a.register-link {
+    /* text-decoration: none; */
+    color: #000080;
+    margin-top: 20px;
+}
+
 .title-logo-flexbox {
     display: flex;
     flex-direction: row;
-    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
 }
 
 .logo {
@@ -29,7 +38,18 @@ body {
 .no-thirsty-today {
     padding-top: 50px 
 }
+/* Water Me button on thirsty plants list */
+.water-me-list-button {
+    margin-top: 20px;
+}
 
+.page-heading{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    text-align: center;
+    font-weight: 700;
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+}
 
 .plant-card-flexbox {
     display: flex;
@@ -46,13 +66,19 @@ body {
     text-align: center;
     background-color: white;
     margin-bottom: 25px;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
 }
 /* .details-container */
 
 .details-buttons-flexbox {
     display: flex;
     flex-direction: row;
+}
+
+.list-buttons-flexbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 /* Div that holds the "days" and "weeks" fields in form */
 .days-weeks {
@@ -66,21 +92,26 @@ body {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+
     /* background-color: white;    */
-    /* opacity: .3;  */
 }
 
 /* class on form itself (and details template) */
 .add-edit-form {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    padding: 20px;
     /* background-color: white; */
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.9);
 }
 
 .save-cancel-flexbox {
     display: flex;
     flex-direction: row;
 }
+
