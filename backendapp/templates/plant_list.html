@@ -7,7 +7,7 @@
     {% for plant in user_plants %}
     <div class="plant-card">
         <p>{{ plant.name }} the {{plant.description}}</p>
-        <p>{{ days_til_watering }} day(s) until {{ plant.name }} is thirsty again.</p>
+        <p>{{ plant.daysTilWatering }} day(s) until {{ plant.name }} is thirsty again.</p>
 
                 {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %} 
         {% comment %} <div class="details-buttons-flexbox"> {% endcomment %}

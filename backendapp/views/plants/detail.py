@@ -19,8 +19,6 @@ def get_days_until_next_watering(plant_object):
         most_recent_watering_object = WateringEvent.objects.filter(plant_id=plant_object.id).order_by('-time')[0]
         # print('Most recent watering object', most_recent_watering_object)
     except:
-        # dateTimeObj = datetime.now(timezone.utc)
-        # justTodaysDate=dateTimeObj.date()
         dateThatPlantNeedsToBeWatered = justTodaysDate + timedelta(weeks=plant_object.weeks, days=plant_object.days)
         daysTilWatering = ((dateThatPlantNeedsToBeWatered - justTodaysDate).days)
     else:

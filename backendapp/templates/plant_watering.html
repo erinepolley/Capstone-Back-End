@@ -12,7 +12,7 @@
             <li> {{ plant.name }} the {{plant.description}} is thirsty!</li>
             <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
-            <button on click="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
+            <button id="water--{{ plant.name }}"
             class="btn btn-info water-me-list-button" id="water--{{ plant.name }}">Water Me!</button>
          </form>
         {% endfor %}
