@@ -7,12 +7,15 @@ from datetime import date, timezone, timedelta
 
 @login_required
 def watering_list(request):
+	'''Gets all plants that need to be watered.
+'''
 	#Upon page load...
 	if request.method=='GET':
 		#Let's see who's logged in and store it in a variable.
 		current_user = request.user
 		#What is today's date? Let's 1) make a date object 
 		justTodaysDate=date.today()
+		monthday = justTodaysDate.strftime("%B %d")
 		#Let's get all the plants for this user.
 		user_plants = Plant.objects.filter(user=current_user)
 		#Empty list to store all the plants that need to be watered. To be explained below...
@@ -42,6 +45,7 @@ def watering_list(request):
 		template = 'plant_watering.html'
 		context = {
 			'thirsty_plants': listOfThirstyPlants,
-			'current_user': current_user
+			'current_user': current_user,
+			'monthday': monthday
 		}
 		return render(request, template, context)

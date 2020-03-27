@@ -4,15 +4,23 @@ from backendapp.models import Plant, PlantType, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import date, timedelta
+from django.http import HttpResponseRedirect
 
 
 def get_plant(plant_id):
+    '''Returns all plants belonging to the authenticated user 
+    Arguments: Plant id passed through URL
+'''
     return Plant.objects.get(pk=plant_id)
 
 def get_plant_type(plant_type_id):
+    '''Returns the plant type of the plant
+'''
     return PlantType.objects.get(pk=plant_type_id)
 
 def get_days_until_next_watering(plant_object):
+    '''Returns how many days left until the plant needs water
+'''
     #Get today's date.
     justTodaysDate=date.today()
     try:
@@ -27,7 +35,7 @@ def get_days_until_next_watering(plant_object):
         dateThatPlantNeedsToBeWatered = justPlantWateringDate + timedelta(weeks=plant_object.weeks, days=plant_object.days)
         #Subtract today's date from date to be watered.
         daysTilWatering = ((dateThatPlantNeedsToBeWatered - justTodaysDate).days)
-    print('Days Until Watering', daysTilWatering)
+    # print('Days Until Watering', daysTilWatering)
     return daysTilWatering
 
 @login_required
@@ -78,12 +86,13 @@ def plant_details(request, plant_id):
             # # Save the change to the db
             plant_to_update.save()
 
-            return redirect(reverse('backendapp:plants'))
+            # go back to details view so you can see your changes
+            return HttpResponseRedirect(request.path_info)
 
         # Check if POST is really deleting a plant
         elif (
-            "actual_method2" in form_data
-            and form_data["actual_method2"] == "DELETE"
+            "actual_method" in form_data
+            and form_data["actual_method"] == "DELETE"
         ):      
             plant = Plant.objects.get(pk=plant_id)
             plant.delete()

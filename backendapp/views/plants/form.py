@@ -7,6 +7,8 @@ from .detail import get_plant
 #Getting the add a plant form
 @login_required
 def plant_form(request):
+    '''Getting the form 
+'''
     if request.method == 'GET':
         plant_type_list = PlantType.objects.all()
         template = 'plant_form.html'
