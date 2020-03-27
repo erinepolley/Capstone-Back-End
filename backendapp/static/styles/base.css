@@ -34,13 +34,19 @@ a.register-link {
 }
 
 .logo {
-    max-height: 75px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    height: 95px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 7px;
+    background-color: rgb(255, 255, 255);
 }
 
 .logo:hover {
-    max-height: 75px;
-    box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.2); /* this adds the "card" effect */
+    box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.2);
+    height: 95px;
+    border-radius: 50%;
+    padding: 7px;
+    background-color: rgb(255, 255, 255);
 }
 
 .logo-login {
@@ -51,9 +57,15 @@ a.register-link {
     font-weight: 600;
 }
 
-.no-thirsty-today {
-    padding-top: 50px 
+.home-button {
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* .no-thirsty-today {
+    padding-top: 50px 
+} */
+
 /* Water Me button on thirsty plants list */
 .water-me-list-button {
     margin-top: 20px;
