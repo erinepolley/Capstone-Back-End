@@ -4,6 +4,7 @@ from backendapp.models import Plant, PlantType, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import date, timedelta
+from django.http import HttpResponseRedirect
 
 
 def get_plant(plant_id):
@@ -85,7 +86,8 @@ def plant_details(request, plant_id):
             # # Save the change to the db
             plant_to_update.save()
 
-            return redirect(reverse('backendapp:plants'))
+            # go back to details view so you can see your changes
+            return HttpResponseRedirect(request.path_info)
 
         # Check if POST is really deleting a plant
         elif (
