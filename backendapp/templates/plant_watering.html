@@ -2,10 +2,13 @@
 
 {% block content %}
 <div class="form-container">
-    <h1 class="page-heading">Hello, {{ current_user.username }}.</h1>
+    <div class="page-heading">
+    <h1>Hello, {{ current_user.username }}.</h1>
 
     {% if thirsty_plants %}
-        <h2>Thirsty Plants for {{ monthday }}</h2>
+        <h2>Your thirsty plants for {{ monthday }}.</h2>
+        </div>
+        <br>
         <ol>
         {% for plant in thirsty_plants %}
         <div class="plant-card">

@@ -12,13 +12,11 @@ body {
     height: 100%;
 }
 
-/* button {
-    margin-right: 5px;
-} */
 
 #app-title {
     font-family: 'Architects Daughter', sans-serif;
     font-size: 70px;
+    margin-top: 30px;
 }
 
 /* Don't have an account? link at bottom of login */
@@ -43,7 +41,14 @@ a.register-link {
 .logo:hover {
     max-height: 75px;
     box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.2); /* this adds the "card" effect */
+}
 
+.logo-login {
+    max-height: 120px;
+}
+
+.thirsty-plants {
+    font-weight: 600;
 }
 
 .no-thirsty-today {
