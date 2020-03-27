@@ -7,7 +7,7 @@
         "description": "plant beside the window",
         "img_url": "google.com",
         "plant_type": 4,
-        "days": 0,
+        "days": 1,
         "weeks": 0,
         "user": 1 
       }
@@ -35,7 +35,7 @@
         "description": "beast",
         "plant_type": 4,
         "img_url": "google.com",
-        "days": 1,
+        "days": 2,
         "weeks": 0,
         "user": 1,
         "notes": "Sheila is a beautiful beast and is convalescing from an unfortunate frost accident last fall" 
@@ -64,7 +64,7 @@
         "description": "plant in the pink pot",
         "plant_type": 4,
         "img_url": "google.com",
-        "days": 1,
+        "days": 7,
         "weeks": 0,
         "user": 2 
       }
@@ -88,7 +88,7 @@
       "model": "backendapp.plant",
       "pk": 7,
       "fields": {
-        "name": "Levon",
+        "name": "Todd",
         "description": "plant you forget about in the bathroom",
         "img_url": "google.com",
         "plant_type": 2,
@@ -105,8 +105,8 @@
         "description": "Orchid",
         "img_url": "google.com",
         "plant_type": 3,
-        "days": 1,
-        "weeks": 0,
+        "days": 0,
+        "weeks": 2,
         "user": 1 
       }
     },
@@ -118,8 +118,8 @@
         "description": "Spiky Succulent",
         "img_url": "google.com",
         "plant_type": 1,
-        "days": 3,
-        "weeks": 0,
+        "days": 0,
+        "weeks": 3,
         "user": 1 
       }
     }
