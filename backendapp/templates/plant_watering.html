@@ -5,7 +5,7 @@
     <h1 class="page-heading">Hello, {{ current_user.username }}.</h1>
 
     {% if thirsty_plants %}
-        <h2>Thirsty Plants</h2>
+        <h2>Thirsty Plants for {{ monthday }}</h2>
         <ol>
         {% for plant in thirsty_plants %}
         <div class="plant-card">

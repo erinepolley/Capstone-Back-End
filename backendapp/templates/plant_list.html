@@ -18,8 +18,8 @@
             </form>
             <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
-            <button onclick="return alert('Your plant has been watered!')" id="water--{{ plant.name }}"
-            class="btn btn-info">Water Me</button>
+            <button id="water--{{ plant.name }}"
+            class="btn btn-info">Water Me!</button>
             </form>
             </div>
             </div>
