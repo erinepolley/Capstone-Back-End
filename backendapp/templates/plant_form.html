@@ -14,10 +14,25 @@
         <fieldset>
             <div class="form-group">
             <label class="col-form-label" for="img_url">Upload image: </label><br>
-            <input id="img_url" class="form-control" type="text" name="img_url" value="{{ plant.img_url }}">
+            {% comment %} <input id="img_url" class="form-control" type="text" name="img_url" value="{{ plant.img_url }}"> {% endcomment %}
+            <button id="upload_widget" class="btn btn-primary">Upload</button>
             </div>        
-        {% comment %} <input type="file" id="img-url" name="img-url" value="{{ plant.img_url }}" accept="image/*"> {% endcomment %}
         </fieldset>
+
+            <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+            <script type="text/javascript">   
+            let myWidget = cloudinary.createUploadWidget({
+                cloudName: "dbclxrl30", uploadPreset: "qnqrerwi",
+                sources: [ 'local','url','camera','dropbox','facebook','instagram']
+                }); 
+
+            document.getElementById("upload_widget").addEventListener("click", function(){
+                myWidget.open();
+            }, false);
+            </script>
+            <input type="hidden" id="img_url" name="img_url">
+        {% comment %} </div> {% endcomment %}
 
         <fieldset>
             <div class="form-group">
@@ -95,8 +110,7 @@
         {% csrf_token %}
         <button class="btn btn-warning">Cancel</button>
         {% endif %}
-        {% comment %} </form> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
+
         </div>
 
         </form>
