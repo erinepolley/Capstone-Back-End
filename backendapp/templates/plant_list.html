@@ -6,6 +6,7 @@
     <div class="plant-card-flexbox">
     {% for plant in user_plants %}
     <div class="plant-card">
+        <img class="plant-images" src="{{ plant.img_url }}" alt="plant image" />
         <p>{{ plant.name }} the {{plant.description}}</p>
         <p>{{ plant.daysTilWatering }} day(s) until {{ plant.name }} is thirsty again.</p>
 
