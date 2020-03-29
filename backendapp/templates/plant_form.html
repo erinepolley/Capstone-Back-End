@@ -61,8 +61,7 @@
                     // do something
                         let new_image = result.info.url
                         document.getElementById("img_url").value=new_image
-                        let messageBox = document.querySelector(".confirm-message")
-                        messageBox.innerhtml = "Photo successfully uploaded!"
+                        alert("Photo successfully updated")
                     }
                 }); 
 
@@ -72,6 +71,9 @@
             </script>
             <input type="hidden" id="img_url" name="img_url">
         </div>
+
+        {% comment %} let messageBox = document.querySelector(".confirm-message")
+    messageBox.innerhtml = "Photo successfully uploaded!" {% endcomment %}
     {% endif %}
     {% csrf_token %}
         <fieldset>
