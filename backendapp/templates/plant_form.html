@@ -3,22 +3,115 @@
     {% if plant.id is not None %}
         <div class="form-container">
         <form class="add-edit-form" action="{% url 'backendapp:plant' plant.id %}" method="POST">
+
+            {% if plant.img_url %}
+                <div id="db-image-parent">
+                    <img id="db-image" class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
+                </div>
+            {% endif %}
+            <div id="parent-photo-div">
+                <div id="new-photo">
+                <img id="new-plant-image" class="plant-images" />
+                </div>
+            </div>
+            {% comment %} When someone uploads a new image to the hidden field, I want this image above to be replaced with that image. {% endcomment %}
+
+        <div>
+            <div class="form-group">
+                <label class="col-form-label" for="image-field">Change image: </label><br>
+                <div class="upload-confirm-flexbox">
+                    <button id="upload_widget" class="btn btn-primary">Upload New Image</button>
+                    <div class="confirm-message"><div>
+                </div>
+            </div>        
+
+            <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+            <script type="text/javascript">   
+            let myWidget = cloudinary.createUploadWidget({
+                cloudName: "dbclxrl30", uploadPreset: "qnqrerwi", 
+                sources: [ 'local','url','camera','dropbox','facebook','instagram']},
+                (error, result) => {
+                    if (result && result.event === "success") {
+                    // do something
+                        let messageBox = document.querySelector(".confirm-message")
+                        messageBox.innerHTML = "Photo successfully uploaded!" 
+
+                        let new_image = result.info.url
+                        document.getElementById("img_url").value=new_image
+
+                        let imgDiv = document.createElement('img')
+                        imgDiv.classList.add('plant-images')
+                        imgDiv.src =  new_image
+                        parentPhotoDiv = document.getElementById('parent-photo-div')
+                        parentPhotoDiv.appendChild(imgDiv)
+
+                        let dbDiv = document.getElementById("db-image")
+                        let dbDivParent = document.getElementById("db-image-parent")
+                        dbDivParent.removeChild(dbDiv)
+                    }
+                }); 
+
+            document.getElementById("upload_widget").addEventListener("click", function(){
+                myWidget.open()
+                event.preventDefault()
+            }, false);
+            </script>
+            <input type="hidden" id="img_url" name="img_url">
+        </div>
+                        {% comment %} dbDiv.classList.add('hide-plant-images')  {% endcomment %}
+                        {% comment %} dbDiv.removeAttribute('src') {% endcomment %}
     {% else %}
+
         <h1 class="page-heading">Add Plant</h1>
         <div class="form-container">
         <form class="add-edit-form" action="{% url 'backendapp:plants' %}" method="post">
-        {% comment %} enctype="multipart/form-data" {% endcomment %}
-    {% endif %}
-        {% csrf_token %}
 
-        <fieldset>
+        <div>
             <div class="form-group">
-            <label class="col-form-label" for="img_url">Upload image: </label><br>
-            <input id="img_url" class="form-control" type="text" name="img_url" value="{{ plant.img_url }}">
+                <div id="parent-photo-div">
+                    <div id="new-photo"></div>
+                </div>
+                <label class="col-form-label" for="image-field">Upload image: </label><br>
+                <div class="upload-confirm-flexbox">
+                    <button id="upload_widget" class="btn btn-primary">Upload</button>
+                    <div class="confirm-message"><div>
+                </div>
             </div>        
-        {% comment %} <input type="file" id="img-url" name="img-url" value="{{ plant.img_url }}" accept="image/*"> {% endcomment %}
-        </fieldset>
 
+            <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+            <script type="text/javascript">   
+            let myWidget = cloudinary.createUploadWidget({
+                cloudName: "dbclxrl30", uploadPreset: "qnqrerwi", 
+                sources: [ 'local','url','camera','dropbox','facebook','instagram']},
+                (error, result) => {
+                    if (result && result.event === "success") {
+                    // do something
+                        let messageBox = document.querySelector(".confirm-message")
+                        messageBox.innerHTML = "Photo successfully uploaded!"
+
+                        let new_image = result.info.url
+                        document.getElementById("img_url").value=new_image
+
+                        let imgDiv = document.createElement('img')
+                        imgDiv.classList.add('plant-images')
+                        imgDiv.src =  new_image
+                        parentPhotoDiv = document.getElementById('parent-photo-div')
+                        parentPhotoDiv.appendChild(imgDiv)
+                    }
+                }); 
+
+            document.getElementById("upload_widget").addEventListener("click", function(){
+                myWidget.open()
+                event.preventDefault()
+            }, false);
+            </script>
+            <input type="hidden" id="img_url" name="img_url">
+        </div>
+
+    {% endif %}
+    {% csrf_token %}
         <fieldset>
             <div class="form-group">
             <label class="col-form-label" for="name">Name: </label><br>
@@ -60,19 +153,11 @@
         <fieldset>
           <div class="form-group">
             <label class="col-form-label" for="notes">Notes: </label><br>
-            <input class="form-control" id="notes" type="text" name="notes" value="{{ plant.notes }}" rows="3"></input>
+            <textarea class="form-control" id="notes"  name="notes" rows="3">{{ plant.notes }}</textarea>
           </div>
         </fieldset>
 
          {% if plant.id is not None %}
-            {% comment %} <section id="book-actions" style="display:flex;">
-
-        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="actual_method" value="PUT">
-
-            <button>Update</button>
-        </form> {% endcomment %}
             <div class="save-cancel-flexbox">        
             <input type="hidden" name="actual_method" value="PUT">
             <input class="btn btn-primary" type="submit" value="Update" />
@@ -95,8 +180,7 @@
         {% csrf_token %}
         <button class="btn btn-warning">Cancel</button>
         {% endif %}
-        {% comment %} </form> {% endcomment %}
-        {% comment %} </div> {% endcomment %}
+
         </div>
 
         </form>

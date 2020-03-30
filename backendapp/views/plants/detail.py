@@ -56,6 +56,7 @@ def plant_details(request, plant_id):
 
     elif request.method == 'POST':
         form_data = request.POST
+        plant_to_update = get_plant(plant_id)
         # Check if this POST is for editing a plant
         if (
             "actual_method" in form_data
@@ -71,11 +72,16 @@ def plant_details(request, plant_id):
                 weeks_value = form_data['weeks']
             else:
                 weeks_value = 0
-
+                
+            if form_data['img_url']:
+                picture = form_data['img_url']
+            else:
+                picture = plant_to_update.img_url
+            # print(picture)
             #retrieving the plant to update
-            plant_to_update = Plant.objects.get(pk=plant_id)
+
              # Reassign a property's value
-            plant_to_update.img_url = form_data['img_url']
+            plant_to_update.img_url = picture
             plant_to_update.name = form_data['name']
             plant_to_update.description = form_data['description']
             plant_to_update.days = days_value
@@ -94,12 +100,12 @@ def plant_details(request, plant_id):
             "actual_method" in form_data
             and form_data["actual_method"] == "DELETE"
         ):      
-            plant = Plant.objects.get(pk=plant_id)
+            plant = get_plant(plant_id)
             plant.delete()
             return redirect(reverse('backendapp:plants'))
-  
+
         else:
-            plant = Plant.objects.get(pk=plant_id)
+            plant = get_plant(plant_id)
             new_wateringevent = WateringEvent(
                 plant_id = plant.id
             )

@@ -12,6 +12,9 @@
         <ol>
         {% for plant in thirsty_plants %}
         <div class="plant-card">
+            {% if plant.img_url %}
+            <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
+            {% endif %}        
             <li> {{ plant.name }} the {{plant.description}} is thirsty!</li>
             <form class="form-event-listener" action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}

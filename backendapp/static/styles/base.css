@@ -12,6 +12,14 @@ body {
     height: 100%;
 }
 
+.plant-images {
+    max-width: 250px;
+    /* max-height: auto; */
+}
+
+.hide-plant-images {
+    visibility: hidden;
+}
 
 #app-title {
     font-family: 'Architects Daughter', sans-serif;
@@ -62,9 +70,7 @@ a.register-link {
     background-color: rgb(255, 255, 255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-/* .no-thirsty-today {
-    padding-top: 50px 
-} */
+
 
 /* Water Me button on thirsty plants list */
 .water-me-list-button {
@@ -96,7 +102,7 @@ a.register-link {
     margin-bottom: 25px;
     background: rgba(255,255,255,0.9);
 }
-/* .details-container */
+
 
 .details-buttons-flexbox {
     display: flex;
@@ -120,13 +126,11 @@ a.register-link {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-
-    /* background-color: white;    */
 }
 
 /* class on form itself (and details template) */
 .add-edit-form {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); 
     display: inline-block;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -134,8 +138,17 @@ a.register-link {
     margin-right: auto;
     text-align: left;
     padding: 20px;
-    /* background-color: white; */
     background: rgba(255,255,255,0.9);
+}
+
+/* div that contains upload photo button and hidden div where confirm message appears */
+.confirm-message {
+    color: #56CC9D;
+}
+
+.upload-confirm-flexbox {
+    display: flex;
+    flex-direction: row;    
 }
 
 .save-cancel-flexbox {

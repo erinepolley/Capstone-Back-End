@@ -5,7 +5,6 @@
       "fields": {
         "name": "Sylvia",
         "description": "plant beside the window",
-        "img_url": "google.com",
         "plant_type": 4,
         "days": 1,
         "weeks": 0,
@@ -19,7 +18,6 @@
       "fields": {
         "name": "Bruce",
         "description": "Aloe Vera",
-        "img_url": "google.com",
         "plant_type": 1,
         "days": 1,
         "weeks": 0,
@@ -34,7 +32,6 @@
         "name": "Sheila",
         "description": "beast",
         "plant_type": 4,
-        "img_url": "google.com",
         "days": 2,
         "weeks": 0,
         "user": 1,
@@ -48,7 +45,6 @@
       "fields": {
         "name": "Charlie",
         "description": "peace lily",
-        "img_url": "google.com",
         "plant_type": 3,
         "days": 2,
         "weeks": 0,
@@ -63,7 +59,6 @@
         "name": "Henrietta",
         "description": "plant in the pink pot",
         "plant_type": 4,
-        "img_url": "google.com",
         "days": 7,
         "weeks": 0,
         "user": 2 
@@ -76,7 +71,6 @@
       "fields": {
         "name": "Golum",
         "description": "plant in the bedroom that watches you when you sleep",
-        "img_url": "google.com",
         "plant_type": 1,
         "days": 0,
         "weeks": 2,
@@ -90,7 +84,6 @@
       "fields": {
         "name": "Todd",
         "description": "plant you forget about in the bathroom",
-        "img_url": "google.com",
         "plant_type": 2,
         "days": 1,
         "weeks": 0,
@@ -103,7 +96,6 @@
       "fields": {
         "name": "Carla",
         "description": "Orchid",
-        "img_url": "google.com",
         "plant_type": 3,
         "days": 0,
         "weeks": 2,
@@ -116,7 +108,6 @@
       "fields": {
         "name": "Stud Muffin",
         "description": "Spiky Succulent",
-        "img_url": "google.com",
         "plant_type": 1,
         "days": 0,
         "weeks": 3,
