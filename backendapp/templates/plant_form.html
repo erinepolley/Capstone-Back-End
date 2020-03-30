@@ -5,7 +5,9 @@
         <form class="add-edit-form" action="{% url 'backendapp:plant' plant.id %}" method="POST">
 
             {% if plant.img_url %}
-                <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
+                <div id="db-image-parent">
+                    <img id="db-image" class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
+                </div>
             {% endif %}
             <div id="parent-photo-div">
                 <div id="new-photo">
@@ -43,7 +45,10 @@
                         imgDiv.src =  new_image
                         parentPhotoDiv = document.getElementById('parent-photo-div')
                         parentPhotoDiv.appendChild(imgDiv)
-                        
+
+                        let dbDiv = document.getElementById("db-image")
+                        let dbDivParent = document.getElementById("db-image-parent")
+                        dbDivParent.removeChild(dbDiv)
                     }
                 }); 
 
@@ -54,7 +59,8 @@
             </script>
             <input type="hidden" id="img_url" name="img_url">
         </div>
-
+                        {% comment %} dbDiv.classList.add('hide-plant-images')  {% endcomment %}
+                        {% comment %} dbDiv.removeAttribute('src') {% endcomment %}
     {% else %}
 
         <h1 class="page-heading">Add Plant</h1>
@@ -96,7 +102,6 @@
                     }
                 }); 
 
-
             document.getElementById("upload_widget").addEventListener("click", function(){
                 myWidget.open()
                 event.preventDefault()
@@ -104,7 +109,6 @@
             </script>
             <input type="hidden" id="img_url" name="img_url">
         </div>
-
 
     {% endif %}
     {% csrf_token %}

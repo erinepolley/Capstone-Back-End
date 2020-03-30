@@ -17,6 +17,10 @@ body {
     /* max-height: auto; */
 }
 
+.hide-plant-images {
+    visibility: hidden;
+}
+
 #app-title {
     font-family: 'Architects Daughter', sans-serif;
     font-size: 70px;

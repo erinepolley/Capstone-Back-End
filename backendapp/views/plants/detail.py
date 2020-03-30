@@ -77,7 +77,7 @@ def plant_details(request, plant_id):
                 picture = form_data['img_url']
             else:
                 picture = plant_to_update.img_url
-            print(picture)
+            # print(picture)
             #retrieving the plant to update
 
              # Reassign a property's value
