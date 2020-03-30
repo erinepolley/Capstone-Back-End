@@ -8,7 +8,9 @@
                 <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
             {% endif %}
             <div id="parent-photo-div">
-                <div id="new-photo"></div>
+                <div id="new-photo">
+                <img id="new-plant-image" class="plant-images" />
+                </div>
             </div>
             {% comment %} When someone uploads a new image to the hidden field, I want this image above to be replaced with that image. {% endcomment %}
 
@@ -28,7 +30,6 @@
                 cloudName: "dbclxrl30", uploadPreset: "qnqrerwi", 
                 sources: [ 'local','url','camera','dropbox','facebook','instagram']},
                 (error, result) => {
-                    console.log("Edit plant result", result)
                     if (result && result.event === "success") {
                     // do something
                         let messageBox = document.querySelector(".confirm-message")
@@ -37,9 +38,17 @@
                         let new_image = result.info.url
                         document.getElementById("img_url").value=new_image
 
-                        let img = document.createElement('img') 
-                        img.src =  new_image 
-                        document.getElementById('parent-photo-div').appendChild(img); 
+                        let imgDiv = document.createElement('img')
+                        console.log("Image Div", imgDiv)
+                        imgDiv.classList.add('plant-images')
+                        console.log("ImageDiv with class", imgDiv)
+                        imgDiv.src =  new_image
+                        console.log("ImageDiv with src", imgDiv)
+                        parentPhotoDiv = document.getElementById('parent-photo-div')
+                        console.log("parent div", parentPhotoDiv)
+                        parentPhotoDiv.appendChild(imgDiv)
+                        console.log("parent photo div with img inside", imgDiv)
+                        
                     }
                 }); 
 
@@ -52,7 +61,12 @@
         </div>
 
     {% else %}
-
+{% comment %} img.setAttribute('class', "plant-images")  {% endcomment %}
+ {% comment %} img.className = "plant-images" {% endcomment %}
+                          {% comment %} let imgDiv = document.getElementById("new-plant-image") {% endcomment %}
+                        {% comment %} imgDiv.src =  new_image {% endcomment %}
+                        
+    {% comment %} console.log("Edit plant result", result) {% endcomment %}
         <h1 class="page-heading">Add Plant</h1>
         <div class="form-container">
         <form class="add-edit-form" action="{% url 'backendapp:plants' %}" method="post">
@@ -76,7 +90,6 @@
                 cloudName: "dbclxrl30", uploadPreset: "qnqrerwi", 
                 sources: [ 'local','url','camera','dropbox','facebook','instagram']},
                 (error, result) => {
-                    console.log("Add a plant result", result)
                     if (result && result.event === "success") {
                     // do something
                         let messageBox = document.querySelector(".confirm-message")
@@ -85,9 +98,16 @@
                         let new_image = result.info.url
                         document.getElementById("img_url").value=new_image
 
-                        let img = document.createElement('img') 
-                        img.src =  new_image 
-                        document.getElementById('parent-photo-div').appendChild(img); 
+                        let imgDiv = document.createElement('img')
+                        console.log("Image Div", imgDiv)
+                        imgDiv.classList.add('plant-images')
+                        console.log("ImageDiv with class", imgDiv)
+                        imgDiv.src =  new_image
+                        console.log("ImageDiv with src", imgDiv)
+                        parentPhotoDiv = document.getElementById('parent-photo-div')
+                        console.log("parent div", parentPhotoDiv)
+                        parentPhotoDiv.appendChild(imgDiv)
+                        console.log("parent photo div with img inside", imgDiv) 
                     }
                 }); 
 
