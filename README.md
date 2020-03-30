@@ -4,7 +4,8 @@
 
 ## An App for Thirsty Plants Everywhere
 
-PlantPal is an app that reminds users when to water their plants. Users can save their plants to the database, log how often their plants need to be watered, and be informed on the correct day when to water the correct plants. When users mark plants as watered, the counter starts over. 
+PlantPal is an app that reminds users when to water their plants. Users can save their plant information and photos to the database (as well as edit and delete them), log how often their plants need to be watered, and be informed on the correct day when to water the correct plants. When users mark plants as watered, it effectively starts the countdown over. 
+
 
 ## Why I Built This
 
