@@ -13,7 +13,7 @@ body {
 }
 
 .plant-images {
-    max-width: 250px;
+    max-width: 200px;
     /* max-height: auto; */
 }
 
@@ -95,8 +95,10 @@ a.register-link {
 
 .plant-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 10px;
-    width: 100%;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
     text-align: center;
     background-color: white;
     margin-bottom: 25px;

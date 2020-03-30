@@ -9,20 +9,19 @@
         <h2>Your thirsty plants for {{ monthday }}.</h2>
     </div>
         <br>
-        <ol>
         {% for plant in thirsty_plants %}
         <div class="plant-card">
             {% if plant.img_url %}
             <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
             {% endif %}        
-            <li> {{ plant.name }} the {{plant.description}} is thirsty!</li>
+            <p></p>
+            <p> {{ plant.name }} the {{plant.description}} is thirsty!</p>
             <form class="form-event-listener" action="{% url 'backendapp:plant' plant.id %}" method="POST">
             {% csrf_token %}
             <button class="btn btn-info water-me-list-button" id="water--{{ plant.name }}">Water Me!</button>
          </form>
         </div>
         {% endfor %}
-        </ol>
 </div>        
 
     {% else %}
