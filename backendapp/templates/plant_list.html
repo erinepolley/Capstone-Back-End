@@ -7,7 +7,7 @@
     {% for plant in user_plants %}
     <div class="plant-card">
         {% if plant.img_url %}
-        <img src="{{ plant.img_url}}" alt="plant image" />
+        <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
         {% endif %}
         <p>{{ plant.name }} the {{plant.description}}</p>
         <p>{{ plant.daysTilWatering }} day(s) until {{ plant.name }} is thirsty again.</p>
