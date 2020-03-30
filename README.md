@@ -1,6 +1,6 @@
 # PlantPal: A Watering Reminder App
 
-![PlantPal Gif Demo](PlantPalGif.gif)
+![PlantPal Gif Demo](BestGif.gif)
 
 ## An App for Thirsty Plants Everywhere
 
