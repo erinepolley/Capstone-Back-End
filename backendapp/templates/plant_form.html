@@ -7,6 +7,10 @@
             {% if plant.img_url %}
                 <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
             {% endif %}
+            <div id="parent-photo-div">
+                <div id="new-photo"></div>
+            </div>
+            {% comment %} When someone uploads a new image to the hidden field, I want this image above to be replaced with that image. {% endcomment %}
 
         <div>
             <div class="form-group">
@@ -24,17 +28,22 @@
                 cloudName: "dbclxrl30", uploadPreset: "qnqrerwi", 
                 sources: [ 'local','url','camera','dropbox','facebook','instagram']},
                 (error, result) => {
+                    console.log("Edit plant result", result)
                     if (result && result.event === "success") {
                     // do something
                         let messageBox = document.querySelector(".confirm-message")
                         messageBox.innerHTML = "Photo successfully uploaded!" 
+
                         let new_image = result.info.url
                         document.getElementById("img_url").value=new_image
+
+                        let img = document.createElement('img') 
+                        img.src =  new_image 
+                        document.getElementById('parent-photo-div').appendChild(img); 
                     }
                 }); 
 
             document.getElementById("upload_widget").addEventListener("click", function(){
-                event.preventDefault()
                 myWidget.open()
                 event.preventDefault()
             }, false);
@@ -50,6 +59,9 @@
 
         <div>
             <div class="form-group">
+                <div id="parent-photo-div">
+                    <div id="new-photo"></div>
+                </div>
                 <label class="col-form-label" for="image-field">Upload image: </label><br>
                 <div class="upload-confirm-flexbox">
                     <button id="upload_widget" class="btn btn-primary">Upload</button>
@@ -64,17 +76,23 @@
                 cloudName: "dbclxrl30", uploadPreset: "qnqrerwi", 
                 sources: [ 'local','url','camera','dropbox','facebook','instagram']},
                 (error, result) => {
+                    console.log("Add a plant result", result)
                     if (result && result.event === "success") {
                     // do something
                         let messageBox = document.querySelector(".confirm-message")
-                        messageBox.innerHTML = "Photo successfully uploaded!" 
+                        messageBox.innerHTML = "Photo successfully uploaded!"
+
                         let new_image = result.info.url
                         document.getElementById("img_url").value=new_image
+
+                        let img = document.createElement('img') 
+                        img.src =  new_image 
+                        document.getElementById('parent-photo-div').appendChild(img); 
                     }
                 }); 
 
+
             document.getElementById("upload_widget").addEventListener("click", function(){
-                event.preventDefault()
                 myWidget.open()
                 event.preventDefault()
             }, false);
