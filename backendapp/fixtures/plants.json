@@ -8,7 +8,8 @@
         "plant_type": 4,
         "days": 1,
         "weeks": 0,
-        "user": 1 
+        "user": 1, 
+        "img_url": "http://res.cloudinary.com/dbclxrl30/image/upload/v1585592682/Plants/lxskgfnegksipzpq9y5y.jpg"
       }
     },
 
@@ -17,11 +18,12 @@
       "pk": 2,
       "fields": {
         "name": "Bruce",
-        "description": "Aloe Vera",
-        "plant_type": 1,
+        "description": "dainty pink plant",
+        "plant_type": 4,
         "days": 1,
         "weeks": 0,
-        "user": 1 
+        "user": 1,
+        "img_url": "http://res.cloudinary.com/dbclxrl30/image/upload/v1585592453/Plants/un1lonriryf4dkfb6akc.jpg" 
       }
     },
 
@@ -30,38 +32,13 @@
       "pk": 3,
       "fields": {
         "name": "Sheila",
-        "description": "beast",
+        "description": "bedroom plant that watches you when you sleep",
         "plant_type": 4,
-        "days": 2,
+        "days": 1,
         "weeks": 0,
         "user": 1,
-        "notes": "Sheila is a beautiful beast and is convalescing from an unfortunate frost accident last fall" 
-      }
-    },
-
-        {
-      "model": "backendapp.plant",
-      "pk": 4,
-      "fields": {
-        "name": "Charlie",
-        "description": "peace lily",
-        "plant_type": 3,
-        "days": 2,
-        "weeks": 0,
-        "user": 2 
-      }
-    },
-
-        {
-      "model": "backendapp.plant",
-      "pk": 5,
-      "fields": {
-        "name": "Henrietta",
-        "description": "plant in the pink pot",
-        "plant_type": 4,
-        "days": 7,
-        "weeks": 0,
-        "user": 2 
+        "notes": "This plant is so creepy, why did I buy this",
+        "img_url": "http://res.cloudinary.com/dbclxrl30/image/upload/v1585592561/Plants/zetfdvwgxrgscvvtwmwq.jpg" 
       }
     },
 
@@ -84,22 +61,11 @@
       "fields": {
         "name": "Todd",
         "description": "plant you forget about in the bathroom",
-        "plant_type": 2,
-        "days": 1,
-        "weeks": 0,
-        "user": 1 
-      }
-    },
-    {
-      "model": "backendapp.plant",
-      "pk": 8,
-      "fields": {
-        "name": "Carla",
-        "description": "Orchid",
-        "plant_type": 3,
+        "plant_type": 1,
         "days": 0,
-        "weeks": 2,
-        "user": 1 
+        "weeks": 3,
+        "user": 1,
+        "img_url": "http://res.cloudinary.com/dbclxrl30/image/upload/v1585592274/Plants/ehjfydzha5u2z8710rga.jpg" 
       }
     },
     {
@@ -110,10 +76,23 @@
         "description": "Spiky Succulent",
         "plant_type": 1,
         "days": 0,
-        "weeks": 3,
-        "user": 1 
+        "weeks": 2,
+        "user": 1,
+        "img_url": "http://res.cloudinary.com/dbclxrl30/image/upload/v1585592655/Plants/kpczw9ivksntlt9dh3zi.jpg" 
+      }
+    },
+    {
+      "model": "backendapp.plant",
+      "pk": 9,
+      "fields": {
+        "name": "Prince",
+        "description": "Parsley Plant",
+        "plant_type": 3,
+        "days": 1,
+        "weeks": 0,
+        "user": 1,
+        "notes": "He is something that you'll never comprehend.",
+        "img_url": "http://res.cloudinary.com/dbclxrl30/image/upload/v1585591871/Plants/jbvxqz2ev6wuyr6hogvc.jpg" 
       }
     }
-
-    
 ]
