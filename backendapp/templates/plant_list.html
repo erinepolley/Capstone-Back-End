@@ -12,8 +12,6 @@
         <p>{{ plant.name }} the {{plant.description}}</p>
         <p>{{ plant.daysTilWatering }} day(s) until {{ plant.name }} is thirsty again.</p>
 
-                {% comment %} <form action="{% url 'backendapp:plant' plant.id %}" method="post"> {% endcomment %} 
-        {% comment %} <div class="details-buttons-flexbox"> {% endcomment %}
             <div class="list-buttons-flexbox">
             <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
             {% csrf_token %}
@@ -26,7 +24,6 @@
             </form>
             </div>
             </div>
-        {% comment %} </div> {% endcomment %}
     {% endfor %}
     </div>
 {% endblock %}
