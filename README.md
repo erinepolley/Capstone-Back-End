@@ -10,8 +10,8 @@ PlantPal is an app that reminds users when to water their plants. Users can save
 
 I can't tell you exactly how many houseplants I've killed, but it's a lot. Most. All? Basically, I've overwatered many a succulent and underwatered many a flower. That's also a story I've consistently heard from other people. I love having plants in the house and decided that our plants deserve better. That's when PlantPal was born.
 
-Technologies used: Python, Django, GitHub, SQLite, Bootstrap (in the form of Bootswatch), Visual Studio Code, DBeaver
-<pre><img src="readme-images/Python.png" height="75" alt="Python" padding-right="10px"/>  <img src="readme-images/Django.png" height="75" alt="Django" margin-right="10px"/>  <img src="readme-images/GitHub.png" height="75" alt="GitHub" margin-right="10px"/>  <img src="readme-images/SQLite.png" height="75" alt="SQLite" margin-right="10px"/>  <img src="readme-images/Bootstrap.png" height="75" alt="Bootstrap" margin-right="10px"/>  <img src="readme-images/VSCode.jpg" height="75" alt="VSCode" margin-right="10px"/>  <img src="readme-images/DBeaver.png" height="75" alt="DBeaver" margin-right="10px"/>  </pre>
+Technologies used: Python, Django, SQLite, JavaScript. Cloudinary, GitHub, Bootstrap (in the form of Bootswatch), Visual Studio Code, DBeaver
+<pre><img src="readme-images/Python.png" height="75" alt="Python" padding-right="10px"/>  <img src="readme-images/Django.png" height="75" alt="Django" margin-right="10px"/>  <img src="readme-images/SQLite.png" height="75" alt="SQLite" margin-right="10px"/>  <img src="readme-images/javascript.png" height="75" alt="javascript" margin-right="10px"/> <br><img src="readme-images/cloudinary.png" height="75" alt="cloudinary" margin-right="10px"/>  <img src="readme-images/GitHub.png" height="75" alt="GitHub" margin-right="10px"/>  <img src="readme-images/Bootstrap.png" height="75" alt="Bootstrap" margin-right="10px"/>  <img src="readme-images/VSCode.jpg" height="75" alt="VSCode" margin-right="10px"/>  <img src="readme-images/DBeaver.png" height="75" alt="DBeaver" margin-right="10px"/>  </pre>
 
 ## Instructions for Using PlantPal
 
