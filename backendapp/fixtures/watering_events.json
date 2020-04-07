@@ -3,47 +3,9 @@
       "model": "backendapp.wateringevent",
       "pk": 1,
       "fields": {
-        "plant": 1
-      }
-    },
-  
-    {
-      "model": "backendapp.wateringevent",
-      "pk": 2,
-      "fields": {
-        "plant": 1
-      }
-    },
-
-    {
-      "model": "backendapp.wateringevent",
-      "pk": 3,
-      "fields": {
-        "plant": 2
-      }
-    },
-
-    {
-      "model": "backendapp.wateringevent",
-      "pk": 4,
-      "fields": {
-        "plant": 3
-      }
-    },
-  
-    {
-      "model": "backendapp.wateringevent",
-      "pk": 5,
-      "fields": {
-        "plant": 4
-      }
-    },
-
-    {
-      "model": "backendapp.wateringevent",
-      "pk": 6,
-      "fields": {
-        "plant": 4
+        "plant": 25,
+        "watered": 1,
+        "time": "2020-04-02"
       }
     }
 ]

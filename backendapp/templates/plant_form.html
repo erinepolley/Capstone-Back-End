@@ -3,7 +3,6 @@
     {% if plant.id is not None %}
         <div class="form-container">
         <form class="add-edit-form" action="{% url 'backendapp:plant' plant.id %}" method="POST">
-
             {% if plant.img_url %}
                 <div id="db-image-parent">
                     <img id="db-image" class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
@@ -11,7 +10,7 @@
             {% endif %}
             <div id="parent-photo-div">
                 <div id="new-photo">
-                <img id="new-plant-image" class="plant-images" />
+                    <img id="new-plant-image" class="plant-images" />
                 </div>
             </div>
             {% comment %} When someone uploads a new image to the hidden field, I want this image above to be replaced with that image. {% endcomment %}
@@ -21,7 +20,7 @@
                 <label class="col-form-label" for="image-field">Change image: </label><br>
                 <div class="upload-confirm-flexbox">
                     <button id="upload_widget" class="btn btn-primary">Upload New Image</button>
-                    <div class="confirm-message"><div>
+                    <div class="confirm-message"></div>
                 </div>
             </div>        
 
@@ -59,8 +58,7 @@
             </script>
             <input type="hidden" id="img_url" name="img_url">
         </div>
-                        {% comment %} dbDiv.classList.add('hide-plant-images')  {% endcomment %}
-                        {% comment %} dbDiv.removeAttribute('src') {% endcomment %}
+
     {% else %}
 
         <h1 class="page-heading">Add Plant</h1>
@@ -75,7 +73,7 @@
                 <label class="col-form-label" for="image-field">Upload image: </label><br>
                 <div class="upload-confirm-flexbox">
                     <button id="upload_widget" class="btn btn-primary">Upload</button>
-                    <div class="confirm-message"><div>
+                    <div class="confirm-message"></div>
                 </div>
             </div>        
 
@@ -114,40 +112,40 @@
     {% csrf_token %}
         <fieldset>
             <div class="form-group">
-            <label class="col-form-label" for="name">Name: </label><br>
-            <input id="name" class="form-control" type="text" name="name" value="{{ plant.name }}" required>
+                <label class="col-form-label" for="name">Name: </label><br>
+                <input id="name" class="form-control" type="text" name="name" value="{{ plant.name }}" required>
             </div>
         </fieldset>
 
         <fieldset>
             <div class="form-group">
-            <label class="col-form-label" for="description">Species/Description: </label><br>
-            <input id="description" class="form-control" type="text" name="description" value="{{ plant.description }}" required>
+                <label class="col-form-label" for="description">Species/Description: </label><br>
+                <input id="description" class="form-control" type="text" name="description" value="{{ plant.description }}" required>
             </div>
         </fieldset>
 
         <fieldset>
             <div class="form-group">
-        <p>How often does this plant need to be watered?</p>
-            <div class="days-weeks">
-            <label class="col-form-label" for="days">Days: </label>
-            <input id="days" class="form-control" type="number" name="days" value="{{ plant.days }}">
-            <label class="col-form-label" for="weeks">Weeks: </label>
-            <input id="weeks" class="form-control" type="number" name="weeks" value="{{ plant.weeks }}">
-            </div>
+                <p>How often does this plant need to be watered?</p>
+                <div class="days-weeks">
+                    <label class="col-form-label" for="days">Days: </label>
+                    <input id="days" class="form-control" type="number" name="days" value="{{ plant.days }}">
+                    <label class="col-form-label" for="weeks">Weeks: </label>
+                    <input id="weeks" class="form-control" type="number" name="weeks" value="{{ plant.weeks }}">
+                </div>
             </div>
         </fieldset>
 
         <fieldset>
-        <div class="form-group">
-            <label class="col-form-label" for="plant_type">Plant Type: </label><br>
-            <select id="plant_type" class="custom-select" name="plant_type">
+            <div class="form-group">
+                <label class="col-form-label" for="plant_type">Plant Type: </label><br>
+                <select id="plant_type" class="custom-select" name="plant_type">
                 {% for type in plant_types %}
-              <option {% if type.id == plant.plant_type_id %}selected{% endif %} value="{{ type.id }}">
-                    {{ type.plant_type }}</option>
+                    <option {% if type.id == plant.plant_type_id %}selected{% endif %} value="{{ type.id }}">
+                            {{ type.plant_type }}</option>
                 {% endfor %} 
-            </select>
-        </div>
+                </select>
+            </div>
         </fieldset>
         
         <fieldset>
@@ -157,32 +155,26 @@
           </div>
         </fieldset>
 
-         {% if plant.id is not None %}
+        {% if plant.id is not None %}
             <div class="save-cancel-flexbox">        
             <input type="hidden" name="actual_method" value="PUT">
             <input class="btn btn-primary" type="submit" value="Update" />
     </form>
-        <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="actual_method" value="DELETE">
-            <button onclick="return confirm('Are you sure you want to delete this plant?')" class="btn btn-danger">Delete</button>
+    <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button onclick="return confirm('Are you sure you want to delete this plant?')" class="btn btn-danger">Delete</button>
 
-
-            {% comment %} <input type="hidden" name="actual_method2" value="DELETE">
-            <input class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to delete this plant?')" value="Delete" /> {% endcomment %}
-    {% comment %} </div> {% endcomment %}
     {% else %}
         <div class="save-cancel-flexbox">
-        <input type="submit" class="btn btn-primary" value="Save">
-        {% comment %} <div class="form-container"> {% endcomment %}
-        </form>
-        <form action="{% url 'backendapp:plants' %}" method="GET">
+            <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+    <form action="{% url 'backendapp:plants' %}" method="GET">
         {% csrf_token %}
         <button class="btn btn-warning">Cancel</button>
-        {% endif %}
+    {% endif %}
 
         </div>
-
         </form>
         </div>
 {% endblock %}

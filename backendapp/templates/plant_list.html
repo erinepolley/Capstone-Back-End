@@ -2,28 +2,26 @@
 
 {% block content %}
     <h1 class="page-heading">My Houseplants</h1>
-    
     <div class="plant-card-flexbox">
-    {% for plant in user_plants %}
-    <div class="plant-card">
-        {% if plant.img_url %}
-        <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
-        {% endif %}
-        <p>{{ plant.name }} the {{plant.description}}</p>
-        <p>{{ plant.daysTilWatering }} day(s) until {{ plant.name }} is thirsty again.</p>
+        {% for plant in user_plants %}
+            <div class="plant-card">
+                {% if plant.img_url %}
+                    <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
+                {% endif %}
+                <p>{{ plant.name }} the {{plant.description}}</p>
+                <p>{{ plant.daysTilWatering }} day(s) until {{ plant.name }} is thirsty again.</p>
 
-            <div class="list-buttons-flexbox">
-            <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
-            {% csrf_token %}
-            <button class="btn btn-primary">Details</button>
-            </form>
-            <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
-            {% csrf_token %}
-            <button id="water--{{ plant.name }}"
-            class="btn btn-info">Water Me!</button>
-            </form>
+                <div class="list-buttons-flexbox">
+                    <form action="{% url 'backendapp:plant' plant.id %}" method="GET">
+                        {% csrf_token %}
+                        <button class="btn btn-primary">Details</button>
+                    </form>
+                    <form action="{% url 'backendapp:plant' plant.id %}" method="POST">
+                        {% csrf_token %}
+                        <button id="water--{{ plant.name }}" class="btn btn-info">Water Me!</button>
+                    </form>
+                </div>
             </div>
-            </div>
-    {% endfor %}
+        {% endfor %}
     </div>
 {% endblock %}

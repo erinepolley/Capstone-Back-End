@@ -3,27 +3,27 @@
 
 {% block content %}
     <div class="form-container">
-    <div class="add-edit-form">
-    <h1>{{ plant.name }}'s Details</h1>
-        {% if plant.img_url %}
-        <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
-        {% endif %}
-        <p>Name: {{ plant.name }}</p>
-        <p>Species/Description: {{ plant.description }}</p>
-        <p>Plant Type: {{ plant_type.plant_type }}</p>
-        <p>Water every {{ plant.days }} days, {{ plant.weeks }} weeks</p>
-        <p>Notes: {{ plant.notes }}</p>
-        <p>{{ days_til_watering }} day(s) until {{ plant.name }} is thirsty again.</p>
+        <div class="add-edit-form">
+            <h1>{{ plant.name }}'s Details</h1>
+            {% if plant.img_url %}
+                <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
+            {% endif %}
+            <p>Name: {{ plant.name }}</p>
+            <p>Species/Description: {{ plant.description }}</p>
+            <p>Plant Type: {{ plant_type.plant_type }}</p>
+            <p>Water every {{ plant.days }} days, {{ plant.weeks }} weeks</p>
+            <p>Notes: {{ plant.notes }}</p>
+            <p>{{ days_til_watering }} day(s) until {{ plant.name }} is thirsty again.</p>
 
-    <div class="save-cancel-flexbox">
-        <form action="{% url 'backendapp:plants' %}" method="GET">
-            {% csrf_token %}
-            <button class="btn btn-primary">Home</button>  
-        </form>
-        <form action="{% url 'backendapp:plant_edit_form' plant.id %}" method="GET">
-            <button class="btn btn-warning">Edit</button>
-        </form>
+            <div class="save-cancel-flexbox">
+                <form action="{% url 'backendapp:plants' %}" method="GET">
+                    {% csrf_token %}
+                    <button class="btn btn-primary">Home</button>  
+                </form>
+                <form action="{% url 'backendapp:plant_edit_form' plant.id %}" method="GET">
+                    <button class="btn btn-warning">Edit</button>
+                </form>
+            </div>
+        </div>
     </div>
-        </div>
-        </div>
 {% endblock %}
