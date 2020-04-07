@@ -80,7 +80,7 @@ def plant_details(request, plant_id):
             # print(picture)
             #retrieving the plant to update
 
-             # Reassign a property's value
+            # Reassign a property's value
             plant_to_update.img_url = picture
             plant_to_update.name = form_data['name']
             plant_to_update.description = form_data['description']

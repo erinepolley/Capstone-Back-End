@@ -3,25 +3,24 @@
 {% block content %}
 <div class="form-container">
     <div class="page-heading">
-    <h1>Hello, {{ current_user.username }}.</h1>
-
-    {% if thirsty_plants %}
-        <h2>Your thirsty plants for {{ monthday }}.</h2>
+        <h1>Hello, {{ current_user.username }}.</h1>
+        {% if thirsty_plants %}
+            <h2>Your thirsty plants for {{ monthday }}.</h2>
     </div>
-        <br>
-        {% for plant in thirsty_plants %}
+    <br>
+    {% for plant in thirsty_plants %}
         <div class="plant-card">
             {% if plant.img_url %}
-            <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
+                <img class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
             {% endif %}        
             <p></p>
             <p> {{ plant.name }} the {{plant.description}} is thirsty!</p>
             <form class="form-event-listener" action="{% url 'backendapp:plant' plant.id %}" method="POST">
-            {% csrf_token %}
-            <button class="btn btn-info water-me-list-button" id="water--{{ plant.name }}">Water Me!</button>
-         </form>
+                {% csrf_token %}
+                <button class="btn btn-info water-me-list-button" id="water--{{ plant.name }}">Water Me!</button>
+            </form>
         </div>
-        {% endfor %}
+    {% endfor %}
 </div>        
 
     {% else %}
