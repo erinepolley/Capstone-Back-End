@@ -21,7 +21,8 @@ def plant_list(request):
 		current_user = request.user
 		user_plant_objects = Plant.objects.filter(user=current_user).order_by('-id')
 		for plant in user_plant_objects:
-			#Getting how many days until watering and then setting it as an attribute on each plant in user_plants. That way, I can pass it along to the template.
+			#Getting how many days until watering and then setting it as an attribute on each plant in user_plants. 
+			#That way, I can pass it along to the template.
 			daysTilWatering = get_days_until_next_watering(plant)
 			setattr(plant, "daysTilWatering", daysTilWatering)
 			# print("KEY VALUE IN PLANT", plant.daysTilWatering)
