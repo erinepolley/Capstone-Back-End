@@ -21,7 +21,6 @@ def get_plant_type(plant_type_id):
 def get_days_until_next_watering(plant_object):
     '''Returns how many days left until the plant needs water
 '''
-    #Get today's date.
     justTodaysDate=date.today()
     try:
         most_recent_watering_object = WateringEvent.objects.filter(plant_id=plant_object.id).order_by('-time')[0]
@@ -37,6 +36,20 @@ def get_days_until_next_watering(plant_object):
         daysTilWatering = ((dateThatPlantNeedsToBeWatered - justTodaysDate).days)
     # print('Days Until Watering', daysTilWatering)
     return daysTilWatering
+
+def check_form_data_days(data_from_form):
+    if data_from_form['days']:
+        days_value = data_from_form['days']
+    else:
+        days_value = 0
+    return days_value
+
+def check_form_data_weeks(data_from_form):
+    if data_from_form['weeks']:
+        weeks_value = data_from_form['weeks']
+    else:
+        weeks_value = 0
+    return weeks_value
 
 @login_required
 def plant_details(request, plant_id):
@@ -63,22 +76,14 @@ def plant_details(request, plant_id):
             and form_data["actual_method"] == "PUT"
         ):
         #When the user leaves days or weeks blank, the program throws an error. This is to set the value to 0 if the user leaves it blank without the error.
-            if form_data['days']:
-                days_value = form_data['days']
-            else:
-                days_value = 0
-
-            if form_data['weeks']:
-                weeks_value = form_data['weeks']
-            else:
-                weeks_value = 0
+            days_value = check_form_data_days(form_data)
+            weeks_value = check_form_data_weeks(form_data)
                 
             if form_data['img_url']:
                 picture = form_data['img_url']
             else:
                 picture = plant_to_update.img_url
             # print(picture)
-            #retrieving the plant to update
 
             # Reassign a property's value
             plant_to_update.img_url = picture
