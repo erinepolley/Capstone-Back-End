@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from backendapp.views.plants.detail import get_days_until_next_watering
+from backendapp.views.plants.detail import get_days_until_next_watering, check_form_data_days, check_form_data_weeks
 from backendapp.models import Plant, WateringEvent
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -21,7 +21,8 @@ def plant_list(request):
 		current_user = request.user
 		user_plant_objects = Plant.objects.filter(user=current_user).order_by('-id')
 		for plant in user_plant_objects:
-			#Getting how many days until watering and then setting it as an attribute on each plant in user_plants. That way, I can pass it along to the template.
+			#Getting how many days until watering and then setting it as an attribute on each plant in user_plants. 
+			#That way, I can pass it along to the template.
 			daysTilWatering = get_days_until_next_watering(plant)
 			setattr(plant, "daysTilWatering", daysTilWatering)
 			# print("KEY VALUE IN PLANT", plant.daysTilWatering)
@@ -36,16 +37,10 @@ def plant_list(request):
 
 	elif request.method == 'POST':
 		form_data = request.POST
-        #When the user leaves days or weeks blank, the program throws an error. This is to set the value to 0 if the user leaves it blank without the error.
-		if form_data['days']:
-			days_value = form_data['days']
-		else:
-			days_value = 0
-			
-		if form_data['weeks']:
-			weeks_value = form_data['weeks']
-		else:
-			weeks_value = 0
+        #When the user leaves days or weeks blank, the program throws an error. 
+		#This is to set the value to 0 if the user leaves it blank without the error.
+		days_value = check_form_data_days(form_data)
+		weeks_value = check_form_data_weeks(form_data)
 
 		current_user = request.user
 		new_plant = Plant(
