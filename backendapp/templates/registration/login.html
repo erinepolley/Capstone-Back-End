@@ -1,7 +1,7 @@
 {% extends 'shared/base-login.html' %}
 {% load static %}
 {% block content %}
-
+<div class="login-form-container">
 <div class="add-edit-form">
 <h2>Welcome!</h2>
  <form method="post">
@@ -10,6 +10,7 @@
     <button class="btn btn-primary" type="submit">Login</button>
  </form>
 <a class="register-link" href="{% url 'backendapp:register' %}">Don't have an account? Register here.</a>
+ </div>
  </div>
     
 {% endblock %}

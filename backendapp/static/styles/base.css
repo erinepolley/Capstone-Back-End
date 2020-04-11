@@ -26,11 +26,8 @@ body {
     margin-top: 30px;
 }
 
-/* Don't have an account? link at bottom of login */
-a.register-link {
-    /* text-decoration: none; */
-    color: #000080;
-    margin-top: 20px;
+.logo-login {
+    max-height: 120px;
 }
 
 .title-logo-flexbox {
@@ -40,6 +37,33 @@ a.register-link {
     background: rgba(255,255,255,0.9);
 }
 
+@media only screen and (max-width: 600px) {
+    #app-title {
+        font-family: 'Architects Daughter', sans-serif;
+        font-size: 60px;
+        margin-top: 20px;
+    }
+
+    .logo-login {
+        max-height: 100px;
+    }
+
+    .title-logo-flexbox {
+        display: flex;
+        flex-direction: row;
+        padding: 20px 20px 20px 40px;
+        background: rgba(255,255,255,0.9);
+    }
+
+    .login-form-container {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+  }
+
 .logo {
     height: 95px;
     border-radius: 50%;
@@ -48,16 +72,19 @@ a.register-link {
     background-color: rgb(255, 255, 255);
 }
 
+/* Don't have an account? link at bottom of login */
+a.register-link {
+    /* text-decoration: none; */
+    color: #000080;
+    margin-top: 20px;
+}
+
 .logo:hover {
     box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.2);
     height: 95px;
     border-radius: 50%;
     padding: 7px;
     background-color: rgb(255, 255, 255);
-}
-
-.logo-login {
-    max-height: 120px;
 }
 
 .thirsty-plants {
@@ -98,6 +125,7 @@ a.register-link {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    min-width: 300px;
     text-align: center;
     background-color: white;
     margin-bottom: 25px;
