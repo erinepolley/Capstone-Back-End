@@ -94,7 +94,7 @@
 
                         let imgDiv = document.createElement('img')
                         imgDiv.classList.add('plant-images')
-                        imgDiv.src =  new_image
+                        imgDiv.src = new_image
                         parentPhotoDiv = document.getElementById('parent-photo-div')
                         parentPhotoDiv.appendChild(imgDiv)
                     }
@@ -132,6 +132,7 @@
                     <input id="days" class="form-control" type="number" name="days" value="{{ plant.days }}">
                     <label class="col-form-label" for="weeks">Weeks: </label>
                     <input id="weeks" class="form-control" type="number" name="weeks" value="{{ plant.weeks }}">
+                    <button id="watering-guide-button" class="btn btn-primary">Watering Guide</button>
                 </div>
             </div>
         </fieldset>

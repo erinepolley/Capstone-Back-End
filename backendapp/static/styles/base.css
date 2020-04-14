@@ -149,6 +149,13 @@ a.register-link {
     flex-direction: row;
 }
 
+#watering-guide-button {
+    margin-top: 0px;
+    margin-left: 10px;
+    font-size: 12px;
+    padding: 3px 6px;
+}
+
 /* the div that the form is in  */
 .form-container {
     display: block;
