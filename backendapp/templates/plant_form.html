@@ -132,10 +132,29 @@
                     <input id="days" class="form-control" type="number" name="days" value="{{ plant.days }}">
                     <label class="col-form-label" for="weeks">Weeks: </label>
                     <input id="weeks" class="form-control" type="number" name="weeks" value="{{ plant.weeks }}">
-                    <button id="watering-guide-button" class="btn btn-primary">Watering Guide</button>
+                    <button id="plant-guide-button" class="btn btn-primary">Watering Guide</button>
                 </div>
             </div>
         </fieldset>
+
+        <div id="myModal" class="modal">
+  <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                <div class="close">&times;</div>
+                <h2>What type of plant do you have?</h2>
+                </div>
+                <div class="modal-body">
+                <p>Herb</p>
+                <p>Flower</p>
+                <p>Succulent</p>
+                <p>Other</p>
+                </div>
+                {% comment %} <div class="modal-footer">
+                <h3>Modal Footer</h3>
+                </div> {% endcomment %}
+            </div>
+        </div>
 
         <fieldset>
             <div class="form-group">
