@@ -208,7 +208,7 @@ a.register-link {
   }
   
   /* Modal Content */
-  .modal-content {
+.modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -248,7 +248,7 @@ a.register-link {
     cursor: pointer;
   }
   
-  .modal-header {
+.modal-header {
     padding: 2px 16px;
     background-color: #6CC3D5;
     color: white;
@@ -256,15 +256,30 @@ a.register-link {
     flex-direction: row-reverse;
   }
   
-  .modal-body {
+.modal-body {
       display: flex;
       flex-direction: row;
       padding: 2px 16px;
     }
-  
-  .modal-footer {
+
+.modal-footer {
     padding: 2px 16px;
     background-color: #6CC3D5;
     color: white;
   }
 
+.watering-guide-image {
+    max-height: 130px;
+}
+
+.image-plant-info-div {
+    padding: 15px;
+}
+
+.modal-advice-section-div {
+    padding: 30px;
+}
+
+.guide-header {
+    padding: 10px;
+}
