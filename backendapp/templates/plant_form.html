@@ -1,4 +1,5 @@
 {% extends 'shared/base.html' %}
+{% load static %}
 {% block content %}
     {% if plant.id is not None %}
         <div class="form-container">
@@ -94,7 +95,7 @@
 
                         let imgDiv = document.createElement('img')
                         imgDiv.classList.add('plant-images')
-                        imgDiv.src =  new_image
+                        imgDiv.src = new_image
                         parentPhotoDiv = document.getElementById('parent-photo-div')
                         parentPhotoDiv.appendChild(imgDiv)
                     }
@@ -132,9 +133,64 @@
                     <input id="days" class="form-control" type="number" name="days" value="{{ plant.days }}">
                     <label class="col-form-label" for="weeks">Weeks: </label>
                     <input id="weeks" class="form-control" type="number" name="weeks" value="{{ plant.weeks }}">
+                    <button id="plant-guide-button" class="btn btn-primary">Watering Guide</button>
                 </div>
             </div>
         </fieldset>
+
+        <div id="myModal" class="modal">
+  <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                <div class="close">&times;</div>
+                <h2 class="guide-header">Plant Watering: Getting Started</h2>
+                </div>
+
+                <div class="modal-body">
+                    <div class="image-plant-info-div">
+                    <img class="watering-guide-image" src="{% static 'images/rosemary.png' %}" alt="herb image" />
+                    <h3>Herb</h3>
+                    <ul>
+                    <li>Start with every four days. </li> 
+                    <li>Wait until top of soil is dry before watering again.</li>
+                    </ul>
+                    </div>
+                    <div class="image-plant-info-div">
+                    <img class="watering-guide-image" src="{% static 'images/flower.png' %}" alt="flower image" />
+                    <h3>Flower</h3>
+                    <ul>
+                    <li>Start with once per week.</li>
+                    <li>Wait until top of soil is dry before watering again.</li>
+                    </div>
+                    <div class="image-plant-info-div">
+                    <img class="watering-guide-image" src="{% static 'images/succulent-new.png' %}" alt="succulent image" />
+                    <h3>Succulent</h3>
+                    <ul>
+                    <li>Water once per month.</li>
+                    <li>Soil can be dry between waterings.</li>
+                    </div>
+                    <div class="image-plant-info-div">
+                    <img src="{% static 'images/other.png' %}" class="watering-guide-image" alt="other category image" />
+                    <h3>Other</h3>
+                    <ul>
+                    <li>Start with once per week.</li> 
+                    <li>Wait until soil is dry to the touch before watering again.</li>
+                    </div>
+                    
+                </div>
+                <div class="modal-advice-section-div">
+                <h4>Things to Think About</h4>
+                    <ul>
+                        <li>It's better to underwater than overwater houseplants.</li>
+                        <li>Succulents like shallow soil. It dries out faster.</li>
+                        <li>How big is the pot? Smaller pots need water more frequently, and larger pots will lose moisture more slowly.</li>
+                    </ul>
+                </div>
+                {% comment %} <div class="modal-footer">
+                <h3>Modal Footer</h3>
+                </div> {% endcomment %}
+            </div>
+        </div>
 
         <fieldset>
             <div class="form-group">
