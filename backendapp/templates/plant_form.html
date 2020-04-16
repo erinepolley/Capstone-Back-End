@@ -9,12 +9,9 @@
                     <img id="db-image" class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
                 </div>
             {% endif %}
-            {% comment %} <div id="parent-photo-div"> {% endcomment %}
                 <div id="new-photo">
                     <img id="new-plant-image" class="plant-images" />
                 </div>
-            {% comment %} </div> {% endcomment %}
-            {% comment %} When someone uploads a new image to the hidden field, I want this image above to be replaced with that image. {% endcomment %}
 
         <div>
             <div class="form-group">
@@ -65,10 +62,6 @@
         </div>
 
     {% else %}
-                            {% comment %} 
-
-                        let imgDiv = document.createElement('img')
-                        imgDiv.classList.add('plant-images') {% endcomment %}
 
         <h1 class="page-heading">Add Plant</h1>
         <div class="form-container">
@@ -94,7 +87,6 @@
                 sources: [ 'local','url','camera','dropbox','facebook','instagram']},
                 (error, result) => {
                     if (result && result.event === "success") {
-                    // do something
                         let messageBox = document.querySelector(".confirm-message")
                         messageBox.innerHTML = "Photo successfully uploaded!"
 

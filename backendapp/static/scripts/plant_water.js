@@ -4,9 +4,18 @@ document.querySelector("body").addEventListener("click", (evt) => {
   if (evt.target.id.startsWith("water")) {
         const name = evt.target.id.split("--")[1]
         alert(`${name} has been watered!`)
+    } else if (evt.target.id.startsWith("register")) {
+      let password = document.getElementById("password").value
+      let password2 = document.getElementById("password2").value
+      if(password!==password2) {
+        evt.preventDefault()
+        alert("Passwords need to match.")
     }
+  }
 })
 
+//MODAL CODE
+//Source of code: W3 Schools modal sample code
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
