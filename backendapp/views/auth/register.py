@@ -19,11 +19,10 @@ def register_user(request):
     # For handling when user submits the form data
     elif request.method == "POST":
         form_data = request.POST
-        # login_data = request.POST.dict()
-        # password1 = login_data.get("password")
-        # password2 = login_data.get("password2")
-        # if password1 == password2:
-        # First create a new user using django's built in craziness. create_user is a method in django.
+        # password1 = form_data["password"]
+        # password2 = form_data["password2"]
+        # if password1 != password2:
+        #     alert("Passwords need to match. ")
         new_user = User.objects.create_user(
             email=request.POST['email'],
             username=request.POST['username'],

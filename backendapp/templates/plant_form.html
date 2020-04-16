@@ -9,12 +9,9 @@
                     <img id="db-image" class="plant-images" src="{{ plant.img_url}}" alt="plant image" />
                 </div>
             {% endif %}
-            <div id="parent-photo-div">
                 <div id="new-photo">
                     <img id="new-plant-image" class="plant-images" />
                 </div>
-            </div>
-            {% comment %} When someone uploads a new image to the hidden field, I want this image above to be replaced with that image. {% endcomment %}
 
         <div>
             <div class="form-group">
@@ -33,22 +30,26 @@
                 sources: [ 'local','url','camera','dropbox','facebook','instagram']},
                 (error, result) => {
                     if (result && result.event === "success") {
-                    // do something
+
                         let messageBox = document.querySelector(".confirm-message")
                         messageBox.innerHTML = "Photo successfully uploaded!" 
 
                         let new_image = result.info.url
                         document.getElementById("img_url").value=new_image
 
-                        let imgDiv = document.createElement('img')
-                        imgDiv.classList.add('plant-images')
-                        imgDiv.src =  new_image
-                        parentPhotoDiv = document.getElementById('parent-photo-div')
+                        let imgDiv = document.getElementById('new-plant-image')
+                        if (imgDiv.src) {
+                            imgDiv.src= ""
+                        }
+
+                        imgDiv.src = new_image
+                        let parentPhotoDiv = document.getElementById('new-photo')
                         parentPhotoDiv.appendChild(imgDiv)
 
                         let dbDiv = document.getElementById("db-image")
                         let dbDivParent = document.getElementById("db-image-parent")
                         dbDivParent.removeChild(dbDiv)
+
                     }
                 }); 
 
@@ -86,7 +87,6 @@
                 sources: [ 'local','url','camera','dropbox','facebook','instagram']},
                 (error, result) => {
                     if (result && result.event === "success") {
-                    // do something
                         let messageBox = document.querySelector(".confirm-message")
                         messageBox.innerHTML = "Photo successfully uploaded!"
 
@@ -151,30 +151,30 @@
                     <img class="watering-guide-image" src="{% static 'images/rosemary.png' %}" alt="herb image" />
                     <h3>Herb</h3>
                     <ul>
-                    <li>Start with every four days. </li> 
-                    <li>Wait until top of soil is dry before watering again.</li>
+                        <li>Start with every four days. </li> 
+                        <li>Wait until top of soil is dry before watering again.</li>
                     </ul>
                     </div>
                     <div class="image-plant-info-div">
                     <img class="watering-guide-image" src="{% static 'images/flower.png' %}" alt="flower image" />
                     <h3>Flower</h3>
                     <ul>
-                    <li>Start with once per week.</li>
-                    <li>Wait until top of soil is dry before watering again.</li>
+                        <li>Start with once per week.</li>
+                        <li>Wait until top of soil is dry before watering again.</li>
                     </div>
                     <div class="image-plant-info-div">
                     <img class="watering-guide-image" src="{% static 'images/succulent-new.png' %}" alt="succulent image" />
                     <h3>Succulent</h3>
                     <ul>
-                    <li>Water once per month.</li>
-                    <li>Soil can be dry between waterings.</li>
+                        <li>Water once per month.</li>
+                        <li>Soil can be dry between waterings.</li>
                     </div>
                     <div class="image-plant-info-div">
                     <img src="{% static 'images/other.png' %}" class="watering-guide-image" alt="other category image" />
                     <h3>Other</h3>
                     <ul>
-                    <li>Start with once per week.</li> 
-                    <li>Wait until soil is dry to the touch before watering again.</li>
+                        <li>Start with once per week.</li> 
+                        <li>Wait until soil is dry to the touch before watering again.</li>
                     </div>
                     
                 </div>
