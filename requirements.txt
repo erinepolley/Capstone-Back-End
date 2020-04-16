@@ -1,7 +1,6 @@
 asgiref==3.2.5
 Django==3.0.4
 MouseInfo==0.1.2
-PyAutoGUI==0.9.48
 PyGetWindow==0.0.8
 PyMsgBox==1.0.7
 pyperclip==1.7.0
