@@ -1,5 +1,5 @@
 asgiref==3.2.5
-Django==3.0.4
+Django==3.0.14
 MouseInfo==0.1.2
 PyGetWindow==0.0.8
 PyMsgBox==1.0.7
